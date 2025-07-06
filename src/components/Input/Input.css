@@ -1,0 +1,58 @@
+.input-container {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 25%;
+}
+
+.input-field {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--border-color); /* default border color */
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  padding: 7px 0;
+  transition: border-color 0.2s;
+  color: inherit;
+}
+
+.input-field::placeholder {
+  color: transparent; /* placeholder invisible */
+}
+
+.input-label {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  font-size: 1.3rem;
+  color: #9b9b9b; /* color base */
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+/* Cuando el input está enfocado O tiene texto, la label sube y cambia estilo */
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: 0;
+  font-size: 1rem;
+  color: inherit; /* toma color inline */
+}
+
+/* Cuando el input está enfocado, cambia borde al color del variant */
+.input-field:focus {
+  border-bottom: 3px solid var(--focus-border-color);
+  padding-bottom: 6px;
+}
+
+/* reset input */
+.input-field:required,
+.input-field:invalid {
+  box-shadow: none;
+}
+
+.input-disabled .input-label {
+  opacity: 0.5;
+  pointer-events: none; /* evita interacción con la label */
+}
