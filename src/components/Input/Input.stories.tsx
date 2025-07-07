@@ -190,6 +190,7 @@ export const FormWithDataDisplay: Story = {
     readOnly: false,
     placeholder: "",
   },
+
   render: (args) => {
     const [formData, setFormData] = React.useState({
       name: "",
@@ -214,6 +215,7 @@ export const FormWithDataDisplay: Story = {
           label="Name"
           value={formData.name}
           onChange={handleChange("name")}
+          ref={inputRef}
         />
         <Input
           {...args}
