@@ -10,85 +10,74 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   sizeStyle?: keyof typeof sizes;
 };
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      label,
-      variant = "default",
-      theme = "light",
-      sizeStyle = "md",
-      id,
-      disabled = false,
-      placeholder,
-      ...props
-    },
-    ref
-  ) => {
-    const themeColors = themes[theme] || themes.light;
-    const variantColors = variants[variant] || variants.default;
-    const sizeStyles = sizes[sizeStyle] || sizes.md;
-    const generatedId = useId();
-    const inputId = id || generatedId;
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const {
+    label,
+    variant = "default",
+    theme = "light",
+    sizeStyle = "md",
+    disabled = false,
+    placeholder,
+    id,
+    type,
+    readOnly,
+    value,
+    ...restProps
+  } = props;
+  const themeColors = themes[theme] || themes.light;
+  const variantColors = variants[variant] || variants.default;
+  const sizeStyles = sizes[sizeStyle] || sizes.md;
+  const generatedId = useId();
+  const inputId = id || generatedId;
 
-    const inputPlaceholder = placeholder === undefined ? " " : placeholder;
-    const shouldFloat = !!inputPlaceholder;
-    const preventFloat = props.readOnly && !inputPlaceholder && !props.value;
+  const inputPlaceholder = placeholder === undefined ? " " : placeholder;
+  const shouldFloat = !!inputPlaceholder;
+  const preventFloat = readOnly && !inputPlaceholder && !value;
 
-    return (
-      <div
-        className={`input-container${disabled ? " input-disabled" : ""}`}
-        style={
-          {
-            "--focus-border-color": variantColors.color,
-            "--border-color": themeColors.contrast,
-            "--label-font-size": sizeStyles.labelFontSize,
-            "--label-font-size-focused": sizeStyles.labelFontSizeFocused,
-          } as React.CSSProperties
-        }
-        title={
-          disabled
-            ? "Este campo está deshabilitado"
-            : props.readOnly
-            ? "Este campo es de solo lectura"
-            : undefined
-        }
-      >
-        <input
-          {...props}
-          className={`input-field${shouldFloat ? " float-label" : ""}${
-            preventFloat ? " prevent-float" : ""
-          }`}
-          id={inputId}
-          placeholder={inputPlaceholder}
-          type={props.type || "text"}
+  return (
+    <div
+      className={`input-container${disabled ? " input-disabled" : ""}`}
+      style={
+        {
+          "--focus-border-color": variantColors.color,
+          "--border-color": themeColors.contrast,
+          "--label-font-size": sizeStyles.labelFontSize,
+          "--label-font-size-focused": sizeStyles.labelFontSizeFocused,
+        } as React.CSSProperties
+      }
+    >
+      <input
+        {...restProps}
+        className={`input-field${shouldFloat ? " float-label" : ""}${
+          preventFloat ? " prevent-float" : ""
+        }`}
+        id={inputId}
+        placeholder={inputPlaceholder}
+        type={type || "text"}
+        style={{
+          color: themeColors.color,
+          cursor: disabled ? "not-allowed" : readOnly ? "default" : "text",
+          width: sizeStyles.width,
+          height: sizeStyles.height,
+          fontSize: sizeStyles.fontSize,
+        }}
+        disabled={disabled}
+        aria-description={props["aria-description"]}
+        ref={ref}
+        value={value}
+      />
+      {label && (
+        <label
+          htmlFor={inputId}
+          className="input-label"
           style={{
-            color: themeColors.color,
-            cursor: disabled
-              ? "not-allowed"
-              : props.readOnly
-              ? "default"
-              : "text",
-            width: sizeStyles.width,
-            height: sizeStyles.height,
-            fontSize: sizeStyles.fontSize,
+            color: variantColors.color,
           }}
-          disabled={disabled}
-          aria-description={props["aria-description"]}
-          ref={ref}
-        />
-        {label && (
-          <label
-            htmlFor={inputId}
-            className="input-label"
-            style={{
-              color: variantColors.color,
-            }}
-            aria-label={label}
-          >
-            {label}
-          </label>
-        )}
-      </div>
-    );
-  }
-);
+          aria-label={label}
+        >
+          {label}
+        </label>
+      )}
+    </div>
+  );
+});

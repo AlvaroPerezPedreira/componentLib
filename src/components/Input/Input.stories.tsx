@@ -215,7 +215,6 @@ export const FormWithDataDisplay: Story = {
           label="Name"
           value={formData.name}
           onChange={handleChange("name")}
-          ref={inputRef}
         />
         <Input
           {...args}
