@@ -180,3 +180,60 @@ export const InfoVariant: Story = {
     placeholder: "",
   },
 };
+
+export const FormWithDataDisplay: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    disabled: false,
+    readOnly: false,
+    placeholder: "",
+  },
+  render: (args) => {
+    const [formData, setFormData] = React.useState({
+      name: "",
+      lastname: "",
+    });
+
+    const handleChange =
+      (field: "name" | "lastname") =>
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+      };
+
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      alert(`Datos del formulario:\n${JSON.stringify(formData, null, 2)}`);
+    };
+
+    return (
+      <form onSubmit={handleSubmit}>
+        <Input
+          {...args}
+          label="Name"
+          value={formData.name}
+          onChange={handleChange("name")}
+        />
+        <Input
+          {...args}
+          label="Lastname"
+          value={formData.lastname}
+          onChange={handleChange("lastname")}
+        />
+
+        <pre
+          style={{
+            padding: 10,
+            marginTop: 50,
+            borderRadius: 4,
+            whiteSpace: "pre-wrap",
+            fontFamily: "monospace",
+          }}
+        >
+          {JSON.stringify(formData, null, 2)}
+        </pre>
+      </form>
+    );
+  },
+};

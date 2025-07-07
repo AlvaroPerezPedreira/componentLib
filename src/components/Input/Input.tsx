@@ -18,6 +18,7 @@ export const Input: React.FC<InputProps> = ({
   sizeStyle = "md",
   id,
   disabled = false,
+  placeholder,
   ...props
 }) => {
   const themeColors = themes[theme] || themes.light;
@@ -25,8 +26,10 @@ export const Input: React.FC<InputProps> = ({
   const sizeStyles = sizes[sizeStyle] || sizes.md;
   const generatedId = useId();
   const inputId = id || generatedId;
-  const shouldFloat = !!props.placeholder;
-  const preventFloat = props.readOnly && !props.placeholder && !props.value;
+
+  const inputPlaceholder = placeholder === undefined ? " " : placeholder;
+  const shouldFloat = !!inputPlaceholder;
+  const preventFloat = props.readOnly && !inputPlaceholder && !props.value;
 
   return (
     <div
@@ -53,6 +56,7 @@ export const Input: React.FC<InputProps> = ({
           preventFloat ? " prevent-float" : ""
         }`}
         id={inputId}
+        placeholder={inputPlaceholder}
         type={props.type || "text"}
         style={{
           color: themeColors.color,
