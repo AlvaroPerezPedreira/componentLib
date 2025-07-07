@@ -9,7 +9,7 @@
   font-family: inherit;
   width: 100%;
   border: none;
-  border-bottom: 2px solid var(--border-color); /* default border color */
+  border-bottom: 2px solid var(--border-color);
   outline: none;
   font-size: 1rem;
   background: transparent;
@@ -18,16 +18,35 @@
   color: inherit;
 }
 
-.input-field::placeholder {
-  color: transparent; /* placeholder invisible */
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: 0;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.input-field.float-label + .input-label {
+  top: 0;
+  font-size: 1rem;
+  color: inherit;
+}
+
+/* Read only */
+.input-field:read-only {
+  cursor: default;
+}
+
+.input-field.prevent-float:focus + .input-label {
+  top: 20px;
+  font-size: var(--label-font-size);
+  color: inherit;
 }
 
 .input-label {
   position: absolute;
   top: 20px;
   left: 0;
-  font-size: 1.3rem;
-  color: #9b9b9b; /* color base */
+  font-size: var(--label-font-size);
   pointer-events: none;
   transition: 0.2s ease all;
 }
@@ -36,7 +55,7 @@
 .input-field:focus + .input-label,
 .input-field:not(:placeholder-shown) + .input-label {
   top: 0;
-  font-size: 1rem;
+  font-size: var(--label-font-size-focused);
   color: inherit; /* toma color inline */
 }
 

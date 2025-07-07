@@ -1,11 +1,13 @@
-import React, { InputHTMLAttributes, useId } from "react";
-import { themes, variants } from "../../theme";
+import React, { useId } from "react";
+import type { InputHTMLAttributes } from "react";
+import { themes, variants, sizes } from "../../theme";
 import "./Input.css";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
+  sizeStyle?: keyof typeof sizes;
   disabled?: boolean;
 };
 
@@ -13,14 +15,18 @@ export const Input: React.FC<InputProps> = ({
   label,
   variant = "default",
   theme = "light",
+  sizeStyle = "md",
   id,
   disabled = false,
   ...props
 }) => {
   const themeColors = themes[theme] || themes.light;
   const variantColors = variants[variant] || variants.default;
+  const sizeStyles = sizes[sizeStyle] || sizes.md;
   const generatedId = useId();
   const inputId = id || generatedId;
+  const shouldFloat = !!props.placeholder;
+  const preventFloat = props.readOnly && !props.placeholder && !props.value;
 
   return (
     <div
@@ -29,19 +35,35 @@ export const Input: React.FC<InputProps> = ({
         {
           "--focus-border-color": variantColors.color,
           "--border-color": themeColors.contrast,
+          "--label-font-size": sizeStyles.labelFontSize,
+          "--label-font-size-focused": sizeStyles.labelFontSizeFocused,
         } as React.CSSProperties
       }
-      title={disabled ? "Este campo está deshabilitado" : undefined}
+      title={
+        disabled
+          ? "Este campo está deshabilitado"
+          : props.readOnly
+          ? "Este campo es de solo lectura"
+          : undefined
+      }
     >
       <input
         {...props}
-        className="input-field"
+        className={`input-field${shouldFloat ? " float-label" : ""}${
+          preventFloat ? " prevent-float" : ""
+        }`}
         id={inputId}
         type={props.type || "text"}
-        placeholder=""
         style={{
           color: themeColors.color,
-          cursor: disabled ? "not-allowed" : "text",
+          cursor: disabled
+            ? "not-allowed"
+            : props.readOnly
+            ? "default"
+            : "text",
+          width: sizeStyles.width,
+          height: sizeStyles.height,
+          fontSize: sizeStyles.fontSize,
         }}
         disabled={disabled}
       />
@@ -49,7 +71,9 @@ export const Input: React.FC<InputProps> = ({
         <label
           htmlFor={inputId}
           className="input-label"
-          style={{ color: variantColors.color }}
+          style={{
+            color: variantColors.color,
+          }}
         >
           {label}
         </label>
