@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Input } from "./components/Input";
+import { Button } from "./components/Button";
 
 function App() {
   const [value, setValue] = useState("");
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="app-form">
         <Input
           label="Name"
           variant="info"
@@ -25,8 +26,9 @@ function App() {
           placeholder=""
           value={value}
           onChange={handleChange}
+          type="text"
         />
-        <button type="submit">Enviar</button>
+        <Button label="Submit" type="submit" theme="dark" />
       </form>
     </div>
   );
