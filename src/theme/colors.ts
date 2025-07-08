@@ -16,22 +16,22 @@ export const themes: ThemeTypes = {
 export const variants: ColorVariants = {
   default: {
     color: "#006FEE",
-    contrast: "#ffffff",
+    contrast: "#004BB5",
   },
   success: {
     color: "#17c964",
-    contrast: "#ffffff",
+    contrast: "#129c4b",
   },
   warning: {
     color: "#f5a524",
-    contrast: "#000000",
+    contrast: "#d18f00",
   },
   danger: {
     color: "#f31260",
-    contrast: "#ffffff",
+    contrast: "#b20a4a",
   },
   info: {
     color: "#0dcaf0",
-    contrast: "#000000",
+    contrast: "#0a8db8",
   },
 };
