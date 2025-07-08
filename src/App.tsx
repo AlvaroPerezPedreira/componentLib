@@ -21,13 +21,14 @@ function App() {
       <form onSubmit={handleSubmit} className="app-form">
         <Input
           label="Name"
-          variant="info"
+          variant="danger"
           sizeStyle="md"
           theme="dark"
           placeholder=""
           value={value}
           onChange={handleChange}
           type="text"
+          iconEnd={<InfoIcon />}
         />
         <Button label="Submit" type="submit" theme="dark" icon={<InfoIcon />} />
       </form>

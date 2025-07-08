@@ -8,6 +8,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
+  iconEnd?: React.ReactNode;
 };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
@@ -22,6 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     type,
     readOnly,
     value,
+    iconEnd,
     ...restProps
   } = props;
   const themeColors = themes[theme] || themes.light;
@@ -30,7 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const generatedId = useId();
   const inputId = id || generatedId;
 
-  const inputPlaceholder = placeholder === undefined ? " " : placeholder;
+  const inputPlaceholder = placeholder === undefined ? "" : placeholder;
   const shouldFloat = !!inputPlaceholder;
   const preventFloat = readOnly && !inputPlaceholder && !value;
 
@@ -60,6 +62,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           width: sizeStyles.width,
           height: sizeStyles.height,
           fontSize: sizeStyles.fontSize,
+          paddingRight: iconEnd ? "2em" : undefined,
         }}
         disabled={disabled}
         aria-description={props["aria-description"]}
@@ -78,6 +81,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           {label}
         </label>
       )}
+      {iconEnd && <span className="input-icon-end">{iconEnd}</span>}
     </div>
   );
 });

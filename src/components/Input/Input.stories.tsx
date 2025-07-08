@@ -1,6 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Input } from "./Input";
+import InfoIcon from "../../assets/InfoIcon";
 
 const meta: Meta<typeof Input> = {
   title: "Components/Input",
@@ -235,6 +236,25 @@ export const FormWithDataDisplay: Story = {
           {JSON.stringify(formData, null, 2)}
         </pre>
       </form>
+    );
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    label: "With Icon",
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    disabled: false,
+    readOnly: false,
+    placeholder: "",
+  },
+  render: (args) => {
+    return (
+      <div style={{ width: "300px" }}>
+        <Input {...args} iconEnd={<InfoIcon />} />
+      </div>
     );
   },
 };

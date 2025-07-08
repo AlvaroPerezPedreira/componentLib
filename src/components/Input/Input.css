@@ -72,5 +72,23 @@
 
 .input-disabled .input-label {
   opacity: 0.5;
-  pointer-events: none; /* evita interacción con la label */
+  pointer-events: none;
+}
+
+/* Icon */
+
+.input-icon-end {
+  position: absolute;
+  right: 0.25em;
+  top: 75%;
+  transform: translateY(-75%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  color: var(--focus-border-color);
+  font-size: 1rem;
+}
+
+.input-disabled .input-icon-end {
+  opacity: 0.5;
 }
