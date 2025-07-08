@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Input } from "./components/Input";
 import { Button } from "./components/Button";
+import InfoIcon from "./assets/InfoIcon";
 
 function App() {
   const [value, setValue] = useState("");
@@ -28,7 +29,7 @@ function App() {
           onChange={handleChange}
           type="text"
         />
-        <Button label="Submit" type="submit" theme="dark" />
+        <Button label="Submit" type="submit" theme="dark" icon={<InfoIcon />} />
       </form>
     </div>
   );

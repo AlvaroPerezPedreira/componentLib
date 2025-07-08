@@ -9,6 +9,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
   thickness?: keyof typeof thicknesses;
+  icon?: React.ReactNode;
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -54,6 +55,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           ref={ref}
           aria-label={label}
         >
+          {restProps.icon && (
+            <span className="button-icon">{restProps.icon}</span>
+          )}
           {label}
         </button>
       </div>

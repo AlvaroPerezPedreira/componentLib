@@ -2,6 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 import { Input } from "../Input";
+import InfoIcon from "../../assets/InfoIcon";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -183,5 +184,18 @@ export const InfoVariant: Story = {
     thickness: "md",
     disabled: false,
     onClick: () => alert("Clicked!"),
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    label: "Button with Icon",
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    thickness: "md",
+    disabled: false,
+    onClick: () => alert("Clicked!"),
+    icon: <InfoIcon />,
   },
 };

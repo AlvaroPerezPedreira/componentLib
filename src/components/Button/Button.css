@@ -27,6 +27,10 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 .button:hover,
@@ -46,4 +50,11 @@
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+/* Icon */
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
 }
