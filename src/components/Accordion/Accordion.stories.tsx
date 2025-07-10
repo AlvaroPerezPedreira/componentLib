@@ -7,26 +7,37 @@ const itemsSet1: AccordionItem[] = [
     id: "1",
     title: "Languages Used",
     content: "This UI was written in HTML and CSS.",
+    disabled: false,
   },
   {
     id: "2",
     title: "How it Works",
     content:
       "Using sibling and checked selectors, we can style siblings based on checked state.",
+    disabled: false,
   },
   {
     id: "3",
     title: "Accessibility",
     content:
       "Keyboard navigation and ARIA attributes improve usability for all users.",
+    disabled: false,
   },
   {
     id: "4",
     title: "Customization",
     content:
       "Easily customize the accordion's styles and behavior with props like size, theme, and variant.",
+    disabled: false,
   },
 ];
+
+const disabledItem: AccordionItem = {
+  id: "5",
+  title: "Disabled Item",
+  content: "This item is disabled and cannot be opened.",
+  disabled: true,
+};
 
 const itemsSet2: AccordionItem[] = [
   {
@@ -35,6 +46,7 @@ const itemsSet2: AccordionItem[] = [
     title: "Advanced Techniques",
     content:
       "Animations and transitions enhance user experience in interactive elements.",
+    disabled: false,
   },
   {
     id: "2",
@@ -42,6 +54,7 @@ const itemsSet2: AccordionItem[] = [
     title: "Accessibility",
     content:
       "Keyboard navigation and ARIA attributes improve usability for all users.",
+    disabled: false,
   },
 ];
 
@@ -117,6 +130,17 @@ export const SingleOpenItem: Story = {
     items: itemsSet1,
     multiple: false,
     defaultOpenItems: ["2"],
+    variant: "default",
+    sizeStyle: "md",
+    theme: "light",
+  },
+};
+
+export const DisabledItem: Story = {
+  args: {
+    items: [...itemsSet1, disabledItem],
+    defaultOpenItems: [],
+    multiple: true,
     variant: "default",
     sizeStyle: "md",
     theme: "light",

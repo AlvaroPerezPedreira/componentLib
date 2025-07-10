@@ -8,6 +8,7 @@ export type AccordionItem = {
   icon?: React.ReactNode;
   title: React.ReactNode;
   content: React.ReactNode;
+  disabled?: boolean;
 };
 
 interface AccordionProps {
@@ -82,19 +83,25 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         {...restProps}
       >
         <ul>
-          {items.map(({ id, icon, title, content }) => {
+          {items.map(({ id, icon, title, content, disabled }) => {
             const isOpen = openItems.includes(id);
             const height = isOpen ? (heights[id] ?? 0) : 0;
 
             return (
-              <li key={id} className={isOpen ? "open" : "closed"}>
+              <li
+                key={id}
+                className={`${isOpen ? "open" : "closed"} ${disabled ? "disabled" : ""}`}
+              >
                 <div
                   className="accordion-header"
-                  onClick={() => toggleItem(id)}
+                  onClick={() => {
+                    if (!disabled) toggleItem(id);
+                  }}
                   role="button"
                   tabIndex={0}
                   onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") toggleItem(id);
+                    if (!disabled && (e.key === "Enter" || e.key === " "))
+                      toggleItem(id);
                   }}
                 >
                   <h2 className="accordion-title">
