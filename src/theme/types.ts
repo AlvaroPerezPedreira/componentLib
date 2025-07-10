@@ -7,6 +7,7 @@ export type ThemeColors = {
   color: string;
   contrast: string;
   background: string;
+  boxShadow: string;
 };
 
 export type ThemeTypes = Record<"light" | "dark", ThemeColors>;
@@ -18,8 +19,10 @@ export type ColorVariants = Record<
 
 export type ComponentSizeStyles = {
   width: string;
+  maxWidth: string;
   height: string;
   fontSize: string;
+  titleFontSize: string;
   labelFontSize: string;
   labelFontSizeFocused: string;
   borderRadius: string;

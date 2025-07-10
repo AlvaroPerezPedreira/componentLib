@@ -1,0 +1,160 @@
+.accordion-menu {
+  max-width: var(--max-width, 350px);
+  margin: 20px auto;
+  padding: 10px 20px 20px;
+  border-radius: 5px;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion-title {
+  font-size: var(--title-font-size);
+  line-height: 34px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+
+  color: var(--title-text-color);
+}
+
+.accordion-title > span {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.accordionItem-content {
+  color: var(--text-color);
+  font-size: var(--font-size, 16px);
+  line-height: 26px;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 14px;
+  z-index: 2;
+  transition: all 0.25s ease-in-out;
+}
+
+ul {
+  list-style: none;
+  perspective: 900;
+  padding: 0 20px 10px;
+  margin: 0;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+}
+
+ul li {
+  position: relative;
+  padding: 12px 20px;
+  margin: 0;
+  border-top: 1px dotted var(--title-text-color);
+  box-sizing: border-box;
+  transition: all 0.25s ease-in-out;
+}
+
+ul li:nth-child(1) {
+  border: none;
+  animation-delay: 0.5s;
+}
+
+ul li:nth-of-type(2) {
+  animation-delay: 0.75s;
+}
+
+ul li:nth-of-type(3) {
+  animation-delay: 1s;
+}
+
+ul li:last-of-type {
+  padding-bottom: 0;
+}
+
+ul li .arrow {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  margin-top: 0;
+  cursor: pointer;
+}
+
+ul li .arrow::before,
+ul li .arrow::after {
+  content: "";
+  position: absolute;
+  background-color: #f6483b;
+  width: 3px;
+  height: 9px;
+  transition: all 0.25s ease-in-out;
+  top: 1px;
+  left: 4px;
+}
+
+ul li .arrow::before {
+  transform: rotate(45deg);
+}
+
+ul li .arrow::after {
+  transform: rotate(-45deg);
+}
+
+/* Arrow rotation when closed */
+ul li.closed .arrow::before {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+
+ul li.closed .arrow::after {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+
+@keyframes flipdown {
+  0% {
+    opacity: 0;
+    transform-origin: top center;
+    transform: rotateX(-90deg);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  80% {
+    transform: rotateX(8deg);
+  }
+
+  83% {
+    transform: rotateX(6deg);
+  }
+
+  92% {
+    transform: rotateX(-3deg);
+  }
+
+  100% {
+    transform-origin: top center;
+    transform: rotateX(0deg);
+  }
+}

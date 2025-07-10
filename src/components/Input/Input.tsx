@@ -65,6 +65,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           paddingRight: iconEnd ? "2em" : undefined,
         }}
         disabled={disabled}
+        readOnly={readOnly}
         aria-description={props["aria-description"]}
         ref={ref}
         value={value}

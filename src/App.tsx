@@ -21,7 +21,7 @@ function App() {
       <form onSubmit={handleSubmit} className="app-form">
         <Input
           label="Name"
-          variant="danger"
+          variant="info"
           sizeStyle="md"
           theme="dark"
           placeholder=""
