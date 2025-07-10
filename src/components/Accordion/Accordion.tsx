@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useRef, useEffect } from "react";
-import ArrowIcon from "./ArrowIcon";
+import ArrowIcon from "../../Icons/ArrowIcon";
 import "./Accordion.css";
 import { sizes, themes, variants } from "../../theme";
 

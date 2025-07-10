@@ -3,6 +3,7 @@ import type { SizeVariants } from "./types";
 export const sizes: SizeVariants = {
   sm: {
     width: "200px",
+    width2: "275px",
     maxWidth: "250px",
     height: "auto",
     fontSize: "14px",
@@ -13,6 +14,7 @@ export const sizes: SizeVariants = {
   },
   md: {
     width: "275px",
+    width2: "350px",
     maxWidth: "350px",
     height: "auto",
     fontSize: "16px",
@@ -23,6 +25,7 @@ export const sizes: SizeVariants = {
   },
   lg: {
     width: "350px",
+    width2: "425px",
     maxWidth: "450px",
     height: "auto",
     fontSize: "18px",

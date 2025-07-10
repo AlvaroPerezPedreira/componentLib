@@ -1,0 +1,106 @@
+.datepicker-container {
+  width: var(--max-width);
+  margin: 0 auto;
+  background: var(--background-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.datepicker-header {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.datepicker-nav-button {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.datepicker-nav-button:hover {
+  color: var(--text-color);
+  transition: color 0.5s;
+}
+
+.datepicker-current-month-year {
+  font-size: var(--title-font-size);
+  font-weight: 700;
+}
+
+.datepicker-calendar {
+  padding: 1rem;
+}
+
+.datepicker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.datepicker-weekday {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: var(--font-size);
+}
+
+.datepicker-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.datepicker-empty-day {
+  padding: 0.5rem;
+}
+
+.datepicker-day-button {
+  padding: 0.5rem 0;
+  margin: 0.125rem;
+  text-align: center;
+  border-radius: 9999px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: var(--font-size);
+  color: var(--text-color);
+}
+
+.datepicker-day-button:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.datepicker-day-button.today {
+  background-color: var(--primary-color-hover);
+  color: var(--primary-color-contrast);
+}
+
+.datepicker-day-button.selected {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.datepicker-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--theme-contrast);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--theme-contrast);
+}
+
+.datepicker-selected-date-display {
+  font-size: var(--font-size);
+  color: var(--text-color);
+}

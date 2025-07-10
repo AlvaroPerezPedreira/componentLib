@@ -1,6 +1,7 @@
 export type VariantColors = {
   color: string;
   contrast: string;
+  highlight: string;
 };
 
 export type ThemeColors = {
@@ -19,6 +20,7 @@ export type ColorVariants = Record<
 
 export type ComponentSizeStyles = {
   width: string;
+  width2: string;
   maxWidth: string;
   height: string;
   fontSize: string;
