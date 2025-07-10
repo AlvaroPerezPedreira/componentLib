@@ -1,10 +1,9 @@
-import { Meta, StoryObj } from "@storybook/react-webpack5";
-import { Button } from "./Button";
-import InfoIcon from "../../assets/InfoIcon";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { TextArea } from "./TextArea";
 
-const meta: Meta<typeof Button> = {
-  title: "Components/Button",
-  component: Button,
+const meta: Meta<typeof TextArea> = {
+  title: "Components/TextArea",
+  component: TextArea,
   argTypes: {
     variant: {
       control: { type: "select" },
@@ -27,173 +26,210 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof TextArea>;
 
 export const Default: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "light",
     sizeStyle: "md",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const DarkTheme: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "dark",
     sizeStyle: "md",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "light",
     sizeStyle: "md",
     thickness: "md",
     disabled: true,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Disabled text area...",
+  },
+};
+
+export const Placeholder: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    thickness: "md",
+    disabled: false,
+    readOnly: false,
+    placeholder: "This is a placeholder",
+  },
+};
+
+export const MaxLength: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    thickness: "md",
+    disabled: false,
+    readOnly: false,
+    placeholder: "Write something...",
+    maxLength: 100,
+  },
+};
+
+export const ReadOnlyWithPlaceholder: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    thickness: "md",
+    disabled: false,
+    readOnly: true,
+    placeholder: "This is a read-only text area with a placeholder",
+  },
+};
+
+export const ReadOnlyWithValue: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    thickness: "md",
+    disabled: false,
+    readOnly: true,
+    placeholder: "",
+    value: "This is a read-only text area with a value",
   },
 };
 
 export const SmallSize: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "light",
     sizeStyle: "sm",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const MediumSize: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "light",
     sizeStyle: "md",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const LargeSize: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "light",
     sizeStyle: "lg",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const SmallThickness: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "light",
     sizeStyle: "md",
     thickness: "sm",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const MediumThickness: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "light",
     sizeStyle: "md",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const LargeThickness: Story = {
   args: {
-    label: "Button",
     variant: "default",
     theme: "light",
     sizeStyle: "md",
     thickness: "lg",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const SuccessVariant: Story = {
   args: {
-    label: "Button",
     variant: "success",
     theme: "light",
     sizeStyle: "md",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const WarningVariant: Story = {
   args: {
-    label: "Button",
     variant: "warning",
     theme: "light",
     sizeStyle: "md",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const DangerVariant: Story = {
   args: {
-    label: "Button",
     variant: "danger",
     theme: "light",
     sizeStyle: "md",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
 
 export const InfoVariant: Story = {
   args: {
-    label: "Button",
     variant: "info",
     theme: "light",
     sizeStyle: "md",
     thickness: "md",
     disabled: false,
-    onClick: () => alert("Clicked!"),
-  },
-};
-
-export const WithIcon: Story = {
-  args: {
-    label: "Button with Icon",
-    variant: "default",
-    theme: "light",
-    sizeStyle: "md",
-    thickness: "md",
-    disabled: false,
-    onClick: () => alert("Clicked!"),
-    icon: <InfoIcon />,
+    readOnly: false,
+    placeholder: "Write something...",
   },
 };
