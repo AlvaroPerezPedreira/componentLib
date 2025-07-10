@@ -5,6 +5,7 @@ import { Button } from "./components/Button";
 import InfoIcon from "./assets/InfoIcon";
 import { Accordion, AccordionItem } from "./components/Accordion";
 import { TextArea } from "./components/TextArea/TextArea";
+import { DatePicker } from "./components/DatePicker";
 
 function App() {
   const [value, setValue] = useState("");
@@ -87,6 +88,13 @@ function App() {
         value={value}
         onChange={handleChange}
       />
+      <DatePicker
+        variant="default"
+        sizeStyle="md"
+        theme="dark"
+        onChange={setValue}
+        value={value} // normalmente DatePicker también recibe el value
+      />{" "}
     </div>
   );
 }

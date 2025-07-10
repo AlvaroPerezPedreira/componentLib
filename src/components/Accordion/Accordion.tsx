@@ -39,13 +39,10 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     const [openItems, setOpenItems] =
       useState<Array<string | number>>(defaultOpenItems);
 
-    //Refs para medir altura de cada contenido
     const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
-    // Estado para guardar alturas reales de contenidos
     const [heights, setHeights] = useState<{ [key: string]: number }>({});
 
-    // Medir alturas
     useEffect(() => {
       const newHeights: { [key: string]: number } = {};
       items.forEach(({ id }) => {
@@ -82,7 +79,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         }
         {...restProps}
       >
-        <ul>
+        <ul role="list" aria-label="Accordion List">
           {items.map(({ id, icon, title, content, disabled }) => {
             const isOpen = openItems.includes(id);
             const height = isOpen ? (heights[id] ?? 0) : 0;
@@ -90,7 +87,9 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
             return (
               <li
                 key={id}
-                className={`${isOpen ? "open" : "closed"} ${disabled ? "disabled" : ""}`}
+                className={`${isOpen ? "open" : "closed"} ${
+                  disabled ? "disabled" : ""
+                }`}
               >
                 <div
                   className="accordion-header"
@@ -98,10 +97,16 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
                     if (!disabled) toggleItem(id);
                   }}
                   role="button"
-                  tabIndex={0}
+                  tabIndex={disabled ? -1 : 0}
+                  aria-disabled={disabled}
+                  aria-expanded={isOpen}
+                  aria-controls={`accordion-content-${id}`}
+                  id={`accordion-header-${id}`}
                   onKeyDown={(e) => {
-                    if (!disabled && (e.key === "Enter" || e.key === " "))
+                    if (!disabled && (e.key === "Enter" || e.key === " ")) {
+                      e.preventDefault(); // Para evitar scroll al presionar espacio
                       toggleItem(id);
+                    }
                   }}
                 >
                   <h2 className="accordion-title">
@@ -112,6 +117,9 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
                 </div>
                 <div
                   className="accordion-content"
+                  id={`accordion-content-${id}`}
+                  role="region"
+                  aria-labelledby={`accordion-header-${id}`}
                   ref={(el) => {
                     contentRefs.current[id] = el;
                   }}
