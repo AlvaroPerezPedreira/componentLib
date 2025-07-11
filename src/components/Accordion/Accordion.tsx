@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useRef, useEffect } from "react";
-import ArrowIcon from "../../Icons/ArrowIcon";
+import ArrowIcon from "../../icons/ArrowIcon";
 import "./Accordion.css";
 import { sizes, themes, variants } from "../../theme";
 
@@ -34,7 +34,6 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
 
     const themeColors = themes[theme] || themes.light;
     const variantColors = variants[variant] || variants.default;
-    const sizeStyles = sizes[sizeStyle] || sizes.md;
 
     const [openItems, setOpenItems] =
       useState<Array<string | number>>(defaultOpenItems);
@@ -64,17 +63,14 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
 
     return (
       <div
-        className="accordion-menu"
+        className={`accordion-menu accordion-menu--${sizeStyle}`}
         ref={ref}
         style={
           {
-            "--max-width": sizeStyles.maxWidth,
             "--title-text-color": variantColors.color,
             "--background-color": themeColors.background,
             "--box-shadow": themeColors.boxShadow,
             "--text-color": themeColors.color,
-            "--title-font-size": sizeStyles.titleFontSize,
-            "--font-size": sizeStyles.fontSize,
           } as React.CSSProperties
         }
         {...restProps}
@@ -109,7 +105,9 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
                     }
                   }}
                 >
-                  <h2 className="accordion-title">
+                  <h2
+                    className={`accordion-title accordion-title--${sizeStyle}`}
+                  >
                     {icon && <span>{icon}</span>}
                     {title}
                   </h2>
@@ -132,7 +130,11 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
                     overflow: "hidden",
                   }}
                 >
-                  <p className="accordionItem-content">{content}</p>
+                  <p
+                    className={`accordionItem-content accordionItem-content--${sizeStyle}`}
+                  >
+                    {content}
+                  </p>
                 </div>
               </li>
             );

@@ -1,10 +1,21 @@
 .datepicker-container {
-  width: var(--max-width);
   margin: 0 auto;
   background: var(--background-color);
   box-shadow: var(--box-shadow);
   border-radius: 0.5rem;
   overflow: hidden;
+}
+
+.datepicker-container--sm {
+  max-width: 250px;
+}
+
+.datepicker-container--md {
+  max-width: 350px;
+}
+
+.datepicker-container--lg {
+  max-width: 450px;
 }
 
 .datepicker-header {
@@ -32,8 +43,19 @@
 }
 
 .datepicker-current-month-year {
-  font-size: var(--title-font-size);
   font-weight: 700;
+}
+
+.datepicker-current-month-year--sm {
+  font-size: 18px;
+}
+
+.datepicker-current-month-year--md {
+  font-size: 20px;
+}
+
+.datepicker-current-month-year--lg {
+  font-size: 22px;
 }
 
 .datepicker-calendar {
@@ -50,8 +72,7 @@
 .datepicker-weekday {
   text-align: center;
   font-weight: 600;
-  color: var(--primary-color);
-  font-size: var(--font-size);
+  color: var(--text-color);
 }
 
 .datepicker-days-grid {
@@ -73,7 +94,6 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
-  font-size: var(--font-size);
   color: var(--text-color);
 }
 
@@ -101,6 +121,23 @@
 }
 
 .datepicker-selected-date-display {
-  font-size: var(--font-size);
   color: var(--text-color);
+}
+
+.datepicker-day-button--sm,
+.datepicker-weekday--sm,
+.datepicker-selected-date-display--sm {
+  font-size: 14px;
+}
+
+.datepicker-day-button--md,
+.datepicker-weekday--md,
+.datepicker-selected-date-display--md {
+  font-size: 16px;
+}
+
+.datepicker-day-button--lg,
+.datepicker-weekday--lg,
+.datepicker-selected-date-display--lg {
+  font-size: 18px;
 }

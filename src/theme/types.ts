@@ -17,17 +17,3 @@ export type ColorVariants = Record<
   "default" | "success" | "warning" | "danger" | "info",
   VariantColors
 >;
-
-export type ComponentSizeStyles = {
-  width: string;
-  width2: string;
-  maxWidth: string;
-  height: string;
-  fontSize: string;
-  titleFontSize: string;
-  labelFontSize: string;
-  labelFontSizeFocused: string;
-  borderRadius: string;
-};
-
-export type SizeVariants = Record<"sm" | "md" | "lg", ComponentSizeStyles>;

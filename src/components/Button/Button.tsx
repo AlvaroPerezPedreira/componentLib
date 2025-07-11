@@ -28,7 +28,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const themeColors = themes[theme] || themes.light;
     const variantColors = variants[variant] || variants.default;
-    const sizeStyles = sizes[sizeStyle] || sizes.md;
     const thicknessStyles = thicknesses[thickness] || thicknesses.md;
 
     const generatedId = useId();
@@ -40,7 +39,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         style={
           {
             "--button-color": variantColors.color,
-            "--button-font-size": sizeStyles.fontSize,
             "--button-thickness": thicknessStyles,
             "--button-text-color": themeColors.color,
           } as React.CSSProperties
@@ -48,7 +46,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         <button
           {...restProps}
-          className="button"
+          className={`button button--${sizeStyle}`}
           id={buttonId}
           type={type || "button"}
           disabled={disabled}

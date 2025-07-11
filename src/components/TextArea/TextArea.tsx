@@ -37,7 +37,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     const themeColors = themes[theme] || themes.light;
     const variantColors = variants[variant] || variants.default;
-    const sizeStyles = sizes[sizeStyle] || sizes.md;
     const thicknessStyles = thicknesses[thickness] || thicknesses.md;
 
     const generatedId = useId();
@@ -98,15 +97,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           {...restProps}
           id={textAreaId}
           ref={textAreaRef}
-          className={`textarea-field`}
+          className={`textarea-field textarea-field--${sizeStyle}`}
           placeholder={placeholder || ""}
           disabled={disabled}
           readOnly={readOnly}
           value={value}
           maxLength={maxLength}
           style={{
-            width: sizeStyles.width,
-            fontSize: sizeStyles.fontSize,
             cursor: disabled ? "not-allowed" : readOnly ? "default" : "text",
           }}
           rows={1}
@@ -115,16 +112,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           aria-description={props["aria-description"]}
         />
         {maxLength && (
-          <div
-            style={{
-              fontSize: "12px",
-              color: themeColors.contrast,
-              textAlign: "right",
-              marginTop: "8px",
-              userSelect: "none",
-              width: sizeStyles.width,
-            }}
-          >
+          <div className={`textarea-counter textarea-counter--${sizeStyle}`}>
             {(typeof value === "string" ? value : String(value ?? "")).length} /{" "}
             {maxLength}
           </div>

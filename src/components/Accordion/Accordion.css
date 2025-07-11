@@ -1,8 +1,19 @@
 .accordion-menu {
-  max-width: var(--max-width, 350px);
   margin: 20px auto;
   padding: 10px 20px 20px;
   border-radius: 5px;
+}
+
+.accordion-menu--sm {
+  max-width: 250px;
+}
+
+.accordion-menu--md {
+  max-width: 350px;
+}
+
+.accordion-menu--lg {
+  max-width: 450px;
 }
 
 .accordion-header {
@@ -13,7 +24,6 @@
 }
 
 .accordion-title {
-  font-size: var(--title-font-size);
   line-height: 34px;
   font-weight: 500;
   letter-spacing: 1px;
@@ -29,6 +39,18 @@
   color: var(--title-text-color);
 }
 
+.accordion-title--sm {
+  font-size: 18px;
+}
+
+.accordion-title--md {
+  font-size: 20px;
+}
+
+.accordion-title--lg {
+  font-size: 22px;
+}
+
 .accordion-title > span {
   display: inline-flex;
   align-items: center;
@@ -37,7 +59,6 @@
 
 .accordionItem-content {
   color: var(--text-color);
-  font-size: var(--font-size, 16px);
   line-height: 26px;
   letter-spacing: 1px;
   position: relative;
@@ -45,6 +66,16 @@
   margin-top: 14px;
   z-index: 2;
   transition: all 0.25s ease-in-out;
+}
+
+.accordionItem-content--sm {
+  font-size: 14px;
+}
+.accordionItem-content--md {
+  font-size: 16px;
+}
+.accordionItem-content--lg {
+  font-size: 18px;
 }
 
 ul {

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./DatePicker.css";
 import { variants, themes, sizes } from "../../theme";
-import { LeftArrowIcon, RightArrowIcon } from "../../Icons";
+import { LeftArrowIcon, RightArrowIcon } from "../../icons";
+import { months, days } from "./constants";
 
 interface DatePickerProps {
   variant?: keyof typeof variants;
@@ -9,22 +10,6 @@ interface DatePickerProps {
   sizeStyle?: keyof typeof sizes;
   disabled?: boolean;
 }
-
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export const DatePicker: React.FC<DatePickerProps> = ({
   variant = "default",
@@ -37,7 +22,6 @@ export const DatePicker: React.FC<DatePickerProps> = ({
 
   const variantColors = variants[variant] || variants.default;
   const themeColors = themes[theme] || themes.light;
-  const sizeStyles = sizes[sizeStyle] || sizes.md;
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
@@ -94,7 +78,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         <button
           key={day}
           onClick={() => handleDateClick(day)}
-          className={`datepicker-day-button ${isToday ? "today" : ""} ${isSelected ? "selected" : ""}`}
+          className={`datepicker-day-button ${isToday ? "today" : ""} ${isSelected ? "selected" : ""} ${sizeStyle ? `datepicker-day-button--${sizeStyle}` : ""}`}
           aria-label={`Select ${months[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`}
         >
           {day}
@@ -109,10 +93,9 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     <div
       role="region"
       data-testid="datepicker-container"
-      className="datepicker-container"
+      className={`datepicker-container datepicker-container--${sizeStyle}`}
       style={
         {
-          "--max-width": sizeStyles.width2,
           "--background-color": themeColors.background,
           "--text-color": themeColors.color,
           "--box-shadow": themeColors.boxShadow,
@@ -120,8 +103,6 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           "--primary-color": variantColors.color,
           "--primary-color-hover": variantColors.highlight,
           "--primary-color-contrast": variantColors.contrast,
-          "--font-size": sizeStyles.fontSize,
-          "--title-font-size": sizeStyles.titleFontSize,
           opacity: disabled ? 0.5 : 1,
           pointerEvents: disabled ? "none" : "auto",
         } as React.CSSProperties
@@ -135,7 +116,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         >
           <LeftArrowIcon />
         </button>
-        <h2 className="datepicker-current-month-year">
+        <h2 className={`datepicker-current-month-year--${sizeStyle}`}>
           {`${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`}
         </h2>
         <button
@@ -150,7 +131,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       <div className="datepicker-calendar">
         <div className="datepicker-weekdays">
           {days.map((day) => (
-            <div key={day} className="datepicker-weekday">
+            <div key={day} className={`datepicker-weekday--${sizeStyle}`}>
               {day}
             </div>
           ))}
@@ -159,7 +140,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       </div>
 
       <div className="datepicker-footer">
-        <div className="datepicker-selected-date-display">
+        <div className={`datepicker-selected-date-display--${sizeStyle}`}>
           {selectedDate
             ? selectedDate.toLocaleDateString("en-US", {
                 weekday: "long",

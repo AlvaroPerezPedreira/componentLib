@@ -28,7 +28,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   } = props;
   const themeColors = themes[theme] || themes.light;
   const variantColors = variants[variant] || variants.default;
-  const sizeStyles = sizes[sizeStyle] || sizes.md;
   const generatedId = useId();
   const inputId = id || generatedId;
 
@@ -43,25 +42,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         {
           "--focus-border-color": variantColors.color,
           "--border-color": themeColors.contrast,
-          "--label-font-size": sizeStyles.labelFontSize,
-          "--label-font-size-focused": sizeStyles.labelFontSizeFocused,
         } as React.CSSProperties
       }
     >
       <input
         {...restProps}
-        className={`input-field${shouldFloat ? " float-label" : ""}${
-          preventFloat ? " prevent-float" : ""
-        }`}
+        className={`input-field input-field--${sizeStyle}${shouldFloat ? " float-label" : ""}${preventFloat ? " prevent-float" : ""}`}
         id={inputId}
         placeholder={inputPlaceholder}
         type={type || "text"}
         style={{
           color: themeColors.color,
           cursor: disabled ? "not-allowed" : readOnly ? "default" : "text",
-          width: sizeStyles.width,
-          height: sizeStyles.height,
-          fontSize: sizeStyles.fontSize,
           paddingRight: iconEnd ? "2em" : undefined,
         }}
         disabled={disabled}
@@ -73,7 +65,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       {label && (
         <label
           htmlFor={inputId}
-          className="input-label"
+          className={`input-label input-label--${sizeStyle}`}
           style={{
             color: variantColors.color,
           }}
@@ -82,7 +74,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           {label}
         </label>
       )}
-      {iconEnd && <span className="input-icon-end">{iconEnd}</span>}
+      {iconEnd && (
+        <span className={`input-icon-end input-icon-end--${sizeStyle}`}>
+          {iconEnd}
+        </span>
+      )}
     </div>
   );
 });

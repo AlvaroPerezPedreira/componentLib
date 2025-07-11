@@ -27,6 +27,24 @@
   outline: none;
 }
 
+.textarea-field--sm,
+.textarea-counter--sm {
+  width: 200px;
+  font-size: 14px;
+}
+
+.textarea-field--md,
+.textarea-counter--md {
+  width: 250px;
+  font-size: 16px;
+}
+
+.textarea-field--lg,
+.textarea-counter--lg {
+  width: 300px;
+  font-size: 18px;
+}
+
 .textarea-field::placeholder {
   color: var(--placeholder-text-color);
 }
@@ -34,4 +52,12 @@
 .textarea-disabled .textarea-field {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.textarea-counter {
+  font-size: 12px;
+  color: var(--placeholder-text-color);
+  text-align: right;
+  margin-top: 8px;
+  user-select: none;
 }

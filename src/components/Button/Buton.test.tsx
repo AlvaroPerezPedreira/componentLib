@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Button } from "./Button";
 import "@testing-library/jest-dom";
-import { variants, themes, sizes, thicknesses } from "../../theme";
+import { variants, themes, thicknesses } from "../../theme";
 
 describe("Button component", () => {
   test("renders button with label", () => {
@@ -61,16 +61,6 @@ describe("Button component", () => {
     });
   });
 
-  test("applies correct CSS variables for size property", () => {
-    const { container } = render(
-      <Button label="Styled" variant="default" sizeStyle="sm" />
-    );
-    const wrapperDiv = container.firstChild;
-    expect(wrapperDiv).toHaveStyle({
-      "--button-font-size": sizes.sm.fontSize,
-    });
-  });
-
   test("applies correct CSS variables for theme property", () => {
     const { container } = render(
       <Button label="Styled" variant="default" theme="dark" />
@@ -95,7 +85,6 @@ describe("Button component", () => {
     expect(wrapperDiv).toHaveStyle({
       "--button-text-color": themes.dark.color,
       "--button-color": variants.default.color,
-      "--button-font-size": sizes.lg.fontSize,
       "--button-thickness": thicknesses.lg,
     });
   });

@@ -7,14 +7,55 @@
 .input-field {
   font-family: inherit;
   width: 100%;
+  height: auto;
   border: none;
   border-bottom: 2px solid var(--border-color);
   outline: none;
   font-size: 1rem;
   background: transparent;
-  padding: 7px 0;
+  /* padding: 7px 0; */
+
   transition: border-color 0.2s;
   color: inherit;
+}
+
+.input-field--sm {
+  width: 200px;
+  padding-top: 6px;
+  padding-bottom: 8px;
+  font-size: 14px;
+}
+
+.input-field--sm:focus,
+.input-field--sm:not(:placeholder-shown) {
+  padding-top: 6px;
+  padding-bottom: 4px;
+}
+
+.input-field--md {
+  width: 250px;
+  padding-top: 10px;
+  padding-bottom: 4px;
+  font-size: 16px;
+}
+
+.input-field--lg {
+  width: 300px;
+  padding-top: 10px;
+  padding-bottom: 4px;
+  font-size: 18px;
+}
+
+.input-field--lg:focus,
+.input-field--lg:not(:placeholder-shown) {
+  padding-top: 12px;
+  padding-bottom: 0px;
+}
+
+/* Borde del input cuando esta focus */
+.input-field:focus {
+  border-bottom: 3px solid var(--focus-border-color);
+  /* padding-bottom: 6px; */
 }
 
 .input-field:focus + .input-label,
@@ -37,7 +78,6 @@
 
 .input-field.prevent-float:focus + .input-label {
   top: 20px;
-  font-size: var(--label-font-size);
   color: inherit;
 }
 
@@ -45,23 +85,45 @@
   position: absolute;
   top: 20px;
   left: 0;
-  font-size: var(--label-font-size);
   pointer-events: none;
   transition: 0.2s ease all;
 }
 
-/* Cuando el input está enfocado O tiene texto, la label sube y cambia estilo */
+.input-label--sm,
+.input-field.prevent-float:focus + .input-label--sm {
+  font-size: 18px;
+}
+
+.input-label--md,
+.input-field.prevent-float:focus + .input-label--md {
+  font-size: 20px;
+}
+
+.input-label--lg,
+.input-field.prevent-float:focus + .input-label--lg {
+  font-size: 22px;
+}
+
+/* Cuando el input está focus / tiene texto, la label sube y cambia estilo */
 .input-field:focus + .input-label,
 .input-field:not(:placeholder-shown) + .input-label {
   top: 0;
-  font-size: var(--label-font-size-focused);
-  color: inherit; /* toma color inline */
+  color: inherit;
 }
 
-/* Cuando el input está enfocado, cambia borde al color del variant */
-.input-field:focus {
-  border-bottom: 3px solid var(--focus-border-color);
-  padding-bottom: 6px;
+.input-field:focus + .input-label--sm,
+.input-field:not(:placeholder-shown) + .input-label--sm {
+  font-size: 12px;
+}
+
+.input-field:focus + .input-label--md,
+.input-field:not(:placeholder-shown) + .input-label--md {
+  font-size: 16px;
+}
+
+.input-field:focus + .input-label--lg,
+.input-field:not(:placeholder-shown) + .input-label--lg {
+  font-size: 18px;
 }
 
 /* reset input */
@@ -79,14 +141,27 @@
 
 .input-icon-end {
   position: absolute;
-  right: 0.25em;
   top: 75%;
   transform: translateY(-75%);
   display: flex;
   align-items: center;
   pointer-events: none;
   color: var(--focus-border-color);
+}
+
+.input-icon-end--sm {
+  right: 5em;
+  font-size: 0.85rem;
+}
+
+.input-icon-end--md {
+  right: 1em;
   font-size: 1rem;
+}
+
+.input-icon-end--lg {
+  right: -2em;
+  font-size: 1.2rem;
 }
 
 .input-disabled .input-icon-end {

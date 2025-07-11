@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Accordion } from "./Accordion";
-import { themes, variants, sizes } from "../../theme";
+import { themes, variants } from "../../theme";
 import "@testing-library/jest-dom";
 
 const items = [
@@ -87,10 +87,5 @@ describe("Accordion component", () => {
     expect(container).toHaveStyle(
       `--title-text-color: ${variants.danger.color}`
     );
-    expect(container).toHaveStyle(`--font-size: ${sizes.lg.fontSize}`);
-    expect(container).toHaveStyle(
-      `--title-font-size: ${sizes.lg.titleFontSize}`
-    );
-    expect(container).toHaveStyle(`--max-width: ${sizes.lg.maxWidth}`);
   });
 });

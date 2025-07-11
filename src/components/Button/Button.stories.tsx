@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Button } from "./Button";
-import InfoIcon from "../../assets/InfoIcon";
+import InfoIcon from "../../icons/InfoIcon";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",

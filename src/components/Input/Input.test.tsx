@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Input } from "./Input";
-import { themes, variants, sizes } from "../../theme";
+import { themes, variants } from "../../theme";
 import "@testing-library/jest-dom";
 
 describe("Input component", () => {
@@ -22,18 +22,24 @@ describe("Input component", () => {
   });
 
   test("applies correct styles based on size", () => {
-    render(<Input sizeStyle="lg" />);
-    const container = screen.getByRole("textbox").parentElement!;
-    expect(container).toHaveStyle({
-      "--label-font-size": sizes.lg.labelFontSize,
-      "--label-font-size-focused": sizes.lg.labelFontSizeFocused,
-    });
+    render(<Input sizeStyle="sm" />);
+
     const input = screen.getByRole("textbox");
-    expect(input).toHaveStyle({
-      width: sizes.lg.width,
-      height: sizes.lg.height,
-      fontSize: sizes.lg.fontSize,
-    });
+    expect(input).toHaveClass("input-field--sm");
+  });
+
+  test("applies correct styles based on size", () => {
+    render(<Input sizeStyle="md" />);
+
+    const input = screen.getByRole("textbox");
+    expect(input).toHaveClass("input-field--md");
+  });
+
+  test("applies correct styles based on size", () => {
+    render(<Input sizeStyle="lg" />);
+
+    const input = screen.getByRole("textbox");
+    expect(input).toHaveClass("input-field--lg");
   });
 
   test("applies correct styles based on theme", () => {
@@ -50,20 +56,19 @@ describe("Input component", () => {
 
   test("applies correct styles based on theme, variant, and sizeStyle", () => {
     render(<Input theme="dark" variant="default" sizeStyle="lg" />);
+
     const container = screen.getByRole("textbox").parentElement!;
     expect(container).toHaveStyle({
       "--focus-border-color": variants.default.color,
       "--border-color": themes.dark.contrast,
-      "--label-font-size": sizes.lg.labelFontSize,
-      "--label-font-size-focused": sizes.lg.labelFontSizeFocused,
     });
 
     const input = screen.getByRole("textbox");
+
+    expect(input).toHaveClass("input-field--lg");
+
     expect(input).toHaveStyle({
       color: themes.dark.color,
-      width: sizes.lg.width,
-      height: sizes.lg.height,
-      fontSize: sizes.lg.fontSize,
     });
   });
 

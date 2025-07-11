@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Accordion, AccordionItem } from "./Accordion";
-import InfoIcon from "../../assets/InfoIcon";
+import InfoIcon from "../../icons/InfoIcon";
 
 const itemsSet1: AccordionItem[] = [
   {

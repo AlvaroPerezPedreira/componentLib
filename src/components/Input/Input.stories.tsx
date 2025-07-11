@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Input } from "./Input";
-import InfoIcon from "../../assets/InfoIcon";
+import InfoIcon from "../../icons/InfoIcon";
 
 const meta: Meta<typeof Input> = {
   title: "Components/Input",

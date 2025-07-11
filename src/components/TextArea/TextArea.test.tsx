@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { TextArea } from "./TextArea";
-import { themes, variants, sizes, thicknesses } from "../../theme";
+import { themes, variants, thicknesses } from "../../theme";
 import "@testing-library/jest-dom";
 
 describe("TextArea component", () => {
@@ -20,12 +20,21 @@ describe("TextArea component", () => {
   });
 
   test("applies correct styles based on sizeStyle", () => {
+    render(<TextArea sizeStyle="sm" />);
+    const textarea = screen.getByRole("textbox");
+    expect(textarea).toHaveClass("textarea-field--sm");
+  });
+
+  test("applies correct styles based on sizeStyle", () => {
+    render(<TextArea sizeStyle="md" />);
+    const textarea = screen.getByRole("textbox");
+    expect(textarea).toHaveClass("textarea-field--md");
+  });
+
+  test("applies correct styles based on sizeStyle", () => {
     render(<TextArea sizeStyle="lg" />);
     const textarea = screen.getByRole("textbox");
-    expect(textarea).toHaveStyle({
-      width: sizes.lg.width,
-      fontSize: sizes.lg.fontSize,
-    });
+    expect(textarea).toHaveClass("textarea-field--lg");
   });
 
   test("applies correct styles based on thickness", () => {

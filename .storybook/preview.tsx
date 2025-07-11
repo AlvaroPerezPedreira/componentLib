@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react-vite";
 import React from "react";
-import { themes } from "../src/theme/colors"; // ajusta la ruta si hace falta
+import { themes } from "../src/theme/colors";
+import "../src/index.css";
 
 const preview: Preview = {
   parameters: {
