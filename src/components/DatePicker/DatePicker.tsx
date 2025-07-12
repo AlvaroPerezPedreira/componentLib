@@ -9,6 +9,8 @@ interface DatePickerProps {
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
   disabled?: boolean;
+  value?: Date | null;
+  onChange?: (date: Date | null) => void;
 }
 
 export const DatePicker: React.FC<DatePickerProps> = ({
@@ -16,9 +18,15 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   theme = "light",
   sizeStyle = "md",
   disabled = false,
+  value,
+  onChange,
 }) => {
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [internalSelectedDate, setInternalSelectedDate] = useState<Date | null>(
+    null
+  );
+
+  const selectedDate = value !== undefined ? value : internalSelectedDate;
 
   const variantColors = variants[variant] || variants.default;
   const themeColors = themes[theme] || themes.light;
@@ -50,9 +58,17 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   const handleDateClick = (day: number) => {
-    setSelectedDate(
-      new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
+    const newDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      day
     );
+    if (onChange) {
+      onChange(newDate);
+    }
+    if (value === undefined) {
+      setInternalSelectedDate(newDate);
+    }
   };
 
   const renderCalendar = () => {
@@ -80,6 +96,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           onClick={() => handleDateClick(day)}
           className={`datepicker-day-button ${isToday ? "today" : ""} ${isSelected ? "selected" : ""} ${sizeStyle ? `datepicker-day-button--${sizeStyle}` : ""}`}
           aria-label={`Select ${months[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`}
+          type="button"
         >
           {day}
         </button>
@@ -113,6 +130,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           onClick={handlePrevMonth}
           className="datepicker-nav-button"
           aria-label="Previous month"
+          type="button"
         >
           <LeftArrowIcon />
         </button>
@@ -123,6 +141,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           onClick={handleNextMonth}
           className="datepicker-nav-button"
           aria-label="Next month"
+          type="button"
         >
           <RightArrowIcon />
         </button>
