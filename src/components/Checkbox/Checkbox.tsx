@@ -80,7 +80,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           disabled={disabled}
           readOnly={readOnly}
           checked={currentChecked}
-          onChange={handleChange}
+          onChange={(e) => {
+            if (!readOnly) handleChange(e);
+          }}
           {...restProps}
         />
         <label htmlFor={checkboxId} className="checkbox-tick" />
