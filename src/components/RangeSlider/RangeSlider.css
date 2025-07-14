@@ -32,6 +32,8 @@
 .rangeSlider::-moz-range-track {
   background: var(--slider-variant-color);
   border-radius: 20px;
+  margin-left: calc(var(--ball-diameter) / 2 * -1);
+  margin-right: calc(var(--ball-diameter) / 2 * -1);
 }
 
 .rangeSlider--sm::-moz-range-track {
@@ -53,6 +55,8 @@
 .rangeSlider::-webkit-slider-runnable-track {
   background: var(--slider-variant-color);
   border-radius: 20px;
+  margin-left: calc(var(--ball-diameter) / 2 * -1);
+  margin-right: calc(var(--ball-diameter) / 2 * -1);
 }
 
 .rangeSlider--sm::-webkit-slider-runnable-track {
@@ -154,4 +158,46 @@
 .rangeSlider:hover::-moz-range-thumb {
   transform: scale(1.2);
   box-shadow: 0 4px 12px var(--slider-variant-color);
+}
+
+/* Ticks */
+.rangeSlider-ticks {
+  width: 100%;
+  padding-left: calc(var(--ball-diameter) / 2);
+  position: relative;
+  height: 12px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.rangeSlider-ticks--sm {
+  margin-top: 6px;
+}
+
+.rangeSlider-ticks--md {
+  margin-top: 8px;
+}
+
+.rangeSlider-ticks--lg {
+  margin-top: 10px;
+}
+
+.rangeSlider-tick {
+  width: 2px;
+  position: absolute;
+  top: 0;
+  background: var(--slider-variant-contrast);
+  transform: translateX(-50%);
+}
+
+.rangeSlider-tick--sm {
+  height: 6px;
+}
+
+.rangeSlider-tick--md {
+  height: 8px;
+}
+
+.rangeSlider-tick--lg {
+  height: 10px;
 }
