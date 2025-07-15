@@ -7,7 +7,7 @@ type RangeSliderProps = InputHTMLAttributes<HTMLInputElement> & {
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
-  showTicks?: boolean; // nuevo prop para mostrar marcas
+  showTicks?: boolean;
 };
 
 export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
@@ -20,7 +20,7 @@ export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
       disabled = false,
       min = 0,
       max = 100,
-      step = 1,
+      step,
       showTicks = false,
       ...rest
     } = props;
@@ -36,11 +36,20 @@ export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
       lg: 22,
     };
 
-    // Generar las opciones para el datalist si showTicks es true
+    // Validar showTicks
+    const validShowTicks = showTicks && step !== undefined && step !== null;
+
+    if (showTicks && !validShowTicks) {
+      console.warn(
+        "RangeSlider: 'showTicks' was set to true, but 'step' is undefined or null. Ignoring 'showTicks'."
+      );
+    }
+
+    // Generar las opciones para los ticks
     const datalistId = `${sliderId}-ticks`;
 
-    const options = [];
-    if (showTicks) {
+    const options: number[] = [];
+    if (validShowTicks) {
       for (let i = Number(min); i <= Number(max); i += Number(step)) {
         options.push(i);
       }
@@ -69,9 +78,9 @@ export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
           min={min}
           max={max}
           step={step}
-          list={showTicks ? datalistId : undefined} // link con el datalist si showTicks
+          list={validShowTicks ? datalistId : undefined}
         />
-        {showTicks && (
+        {validShowTicks && (
           <div className={`rangeSlider-ticks rangeSlider-ticks--${sizeStyle}`}>
             {options.map((val) => (
               <span

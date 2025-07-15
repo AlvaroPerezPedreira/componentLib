@@ -1,21 +1,24 @@
 import { useState } from "react";
 import "./App.css";
-import { Checkbox } from "./components/Checkbox";
+import { RangeSlider } from "./components/RangeSlider";
 
 function App() {
-  const [checked, setChecked] = useState(false);
+  const [value, setValue] = useState(Number);
 
   return (
     <div className="app-container">
-      <Checkbox
+      <RangeSlider
         variant="danger"
-        label="hola"
         theme="light"
         sizeStyle="lg"
-        checked={checked}
-        onChange={(e) => setChecked(e.target.checked)}
+        value={value}
+        onChange={(e) => setValue(Number(e.target.value))}
+        min={-500}
+        max={500}
+        step={100}
+        showTicks={true}
       />
-      <p>Checked: {checked ? "Sí" : "No"}</p>
+      <p>Checked: {value}</p>
     </div>
   );
 }
