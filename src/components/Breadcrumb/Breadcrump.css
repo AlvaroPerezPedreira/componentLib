@@ -1,0 +1,107 @@
+/* Breadcrumb.css */
+
+.breadcrumb-container {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.breadcrumb-item--sm {
+  font-size: 12px;
+}
+
+.breadcrumb-item--md {
+  font-size: 16px;
+}
+
+.breadcrumb-item--lg {
+  font-size: 20px;
+}
+
+.breadcrumb-link {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  color: var(--title-text-color);
+  text-decoration: underline;
+}
+
+.breadcrumb-link[aria-current="location"] {
+  font-weight: 700;
+  cursor: default;
+  color: var(--title-text-color);
+}
+
+.breadcrumb-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+  stroke: currentColor;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.breadcrumb-icon--sm {
+  width: 16px;
+  height: 16px;
+}
+.breadcrumb-icon--md {
+  width: 20px;
+  height: 20px;
+}
+.breadcrumb-icon--lg {
+  width: 24px;
+  height: 24px;
+}
+
+.breadcrumb-separator {
+  user-select: none;
+  color: var(--separator-color);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Tamaños */
+.breadcrumb-separator--sm {
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+.breadcrumb-separator--md {
+  font-size: 16px;
+  margin: 0 8px;
+}
+
+.breadcrumb-separator--lg {
+  font-size: 20px;
+  margin: 0 12px;
+}
+
+.breadcrumb-separator--sm svg {
+  width: 12px;
+  height: 12px;
+}
+
+.breadcrumb-separator--md svg {
+  width: 16px;
+  height: 16px;
+}
+
+.breadcrumb-separator--lg svg {
+  width: 20px;
+  height: 20px;
+}
