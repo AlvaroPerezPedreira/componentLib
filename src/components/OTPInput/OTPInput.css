@@ -1,0 +1,117 @@
+.otp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--otp-text-color);
+}
+
+.otp-container--sm {
+  width: calc(var(--nElements) * 16px + (var(--nElements) - 1) * 6px);
+}
+
+.otp-container--md {
+  width: calc(var(--nElements) * 20px + (var(--nElements) - 1) * 8px);
+}
+
+.otp-container--lg {
+  width: calc(var(--nElements) * 24px + (var(--nElements) - 1) * 10px);
+}
+
+.otp-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.otp-inputs--sm {
+  gap: 6px;
+}
+
+.otp-inputs--md {
+  gap: 8px;
+}
+
+.otp-inputs--lg {
+  gap: 10px;
+}
+
+.otp-input {
+  background: transparent;
+  border: none;
+  font-family: monospace;
+  text-align: center;
+  color: var(--otp-text-color);
+  width: 100%;
+  font-feature-settings: "tnum";
+}
+
+.otp-input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.otp-input--sm {
+  font-size: 14px;
+}
+
+.otp-input--md {
+  font-size: 18px;
+}
+
+.otp-input--lg {
+  font-size: 20px;
+}
+
+.otp-input::placeholder {
+  color: var(--otp-placeholder-color);
+  white-space: pre;
+  letter-spacing: inherit;
+}
+
+/* Asegúrate de que este div actúe como una caja con separación */
+.otp-underline-box {
+  display: flex;
+  justify-content: center;
+}
+
+.otp-underline-box--sm {
+  width: calc(var(--nElements) * 16px + (var(--nElements) - 1) * 6px);
+  gap: 6px;
+  margin-top: 2px;
+}
+.otp-underline-box--md {
+  width: calc(var(--nElements) * 20px + (var(--nElements) - 1) * 8px);
+  gap: 8px;
+  margin-top: 3px;
+}
+.otp-underline-box--lg {
+  width: calc(var(--nElements) * 24px + (var(--nElements) - 1) * 10px);
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* Estilo base para los subrayados */
+.otp-underline {
+  display: block;
+  height: 2px;
+  background-color: var(--otp-border);
+  transition: background-color 0.2s ease;
+}
+
+.otp-underline--sm {
+  width: 16px;
+}
+
+.otp-underline--md {
+  width: 20px;
+}
+
+.otp-underline--lg {
+  width: 24px;
+}
+
+/* Subrayado activo */
+.otp-underline.active {
+  background-color: var(--otp-underline-active);
+}

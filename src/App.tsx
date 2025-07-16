@@ -1,24 +1,34 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { RangeSlider } from "./components/RangeSlider";
+import { OTPInput } from "./components/OTPInput";
 
 function App() {
-  const [value, setValue] = useState(Number);
+  const [otpValue, setOtpValue] = useState("");
+  const [submittedOtp, setSubmittedOtp] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmittedOtp(otpValue);
+  };
 
   return (
     <div className="app-container">
-      <RangeSlider
-        variant="danger"
-        theme="light"
-        sizeStyle="lg"
-        value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
-        min={-500}
-        max={500}
-        step={100}
-        showTicks={true}
-      />
-      <p>Checked: {value}</p>
+      <form onSubmit={handleSubmit}>
+        <OTPInput
+          length={4}
+          value={otpValue}
+          onChange={setOtpValue}
+          theme="light"
+          variant="warning"
+          sizeStyle="md"
+          placeholder=""
+          variantTextColor={true}
+        />
+        <button type="submit" style={{ marginTop: "1rem" }}>
+          Submit OTP
+        </button>
+      </form>
+      <p>Submitted OTP: {submittedOtp}</p>
     </div>
   );
 }
