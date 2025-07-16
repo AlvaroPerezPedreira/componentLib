@@ -58,6 +58,7 @@ export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
     return (
       <div
         className={`rangeSlider-container${disabled ? " rangeSlider-disabled" : ""}`}
+        data-testid="rangeSlider-container"
         style={
           {
             "--slider-variant-color": variantColors.color,
@@ -74,6 +75,7 @@ export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
           id={sliderId}
           ref={ref}
           className={`rangeSlider rangeSlider--${sizeStyle}`}
+          data-testid="rangeSlider"
           disabled={disabled}
           min={min}
           max={max}
