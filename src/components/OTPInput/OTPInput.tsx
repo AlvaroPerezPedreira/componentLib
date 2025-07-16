@@ -130,6 +130,7 @@ export const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
 
     return (
       <div
+        data-testid="otp-container"
         className={`otp-container otp-container--${sizeStyle}`}
         style={
           {
@@ -143,7 +144,10 @@ export const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
           } as React.CSSProperties
         }
       >
-        <div className={`otp-inputs otp-inputs--${sizeStyle}`}>
+        <div
+          data-testid="otp-inputs"
+          className={`otp-inputs otp-inputs--${sizeStyle}`}
+        >
           {Array.from({ length }).map((_, i) => (
             <input
               key={i}
