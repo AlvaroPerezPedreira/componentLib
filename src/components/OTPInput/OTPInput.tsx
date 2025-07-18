@@ -1,6 +1,13 @@
 import React, { useRef, useEffect, forwardRef, useState } from "react";
 import { themes, variants, sizes } from "../../theme";
 import "./OTPInput.css";
+import {
+  isValidDigit,
+  isValueComplete,
+  sanitizeValue,
+  sanitizePlaceholder,
+  extractPastedValue,
+} from "./OTPInputUtils";
 
 type OTPInputProps = {
   value?: string;
@@ -31,34 +38,24 @@ export const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
     const themeColors = themes[theme] || themes.light;
     const variantColors = variants[variant] || variants.default;
 
-    // Rellenamos con cadenas vacías para evitar espacios que bloqueen el input
-    const valueArr = value
-      .split("")
-      .concat(Array(length).fill(""))
-      .slice(0, length);
-    const placeholderArr = placeholder
-      ? placeholder.padEnd(length, " ").slice(0, length).split("")
-      : Array(length).fill(" ");
+    // Rellena con cadenas vacías para evitar espacios que bloqueen el input
+    const valueArr = sanitizeValue(value, length);
+    const placeholderArr = sanitizePlaceholder(placeholder, length);
 
     const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-    // Actualizar un dígito concreto
     const setDigit = (index: number, digit: string) => {
-      if (!/^\d?$/.test(digit)) return;
+      if (!isValidDigit(digit)) return;
       const newValueArr = [...valueArr];
       newValueArr[index] = digit;
       const newValue = newValueArr.join("");
       onChange?.(newValue);
 
-      if (isValueComplete(newValue)) {
+      if (isValueComplete(newValue, length)) {
         onComplete?.(newValue);
       }
-    };
-
-    const isValueComplete = (val: string) => {
-      return val.length === length && !val.includes("");
     };
 
     const handleKeyDown = (
@@ -79,7 +76,7 @@ export const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
         e.preventDefault();
       } else if (e.key === "Enter") {
         const currentValue = valueArr.join("");
-        if (isValueComplete(currentValue)) {
+        if (isValueComplete(currentValue, length)) {
           onComplete?.(currentValue);
         } else {
           e.preventDefault();
@@ -109,10 +106,10 @@ export const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
 
     const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
       e.preventDefault();
-      const pasted = e.clipboardData
-        .getData("text")
-        .replace(/\D/g, "")
-        .slice(0, length);
+      const pasted = extractPastedValue(
+        e.clipboardData.getData("text"),
+        length
+      );
       onChange?.(pasted);
       if (pasted.length > 0) {
         const nextIndex = Math.min(pasted.length, length - 1);

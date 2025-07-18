@@ -2,6 +2,7 @@ import React, { forwardRef, useId } from "react";
 import type { InputHTMLAttributes } from "react";
 import { sizes, themes, variants } from "../../theme";
 import "./RangeSlider.css";
+import { ballDiameters } from "./RangeSliderConstants";
 
 type RangeSliderProps = InputHTMLAttributes<HTMLInputElement> & {
   variant?: keyof typeof variants;
@@ -30,20 +31,8 @@ export const RangeSlider = forwardRef<HTMLInputElement, RangeSliderProps>(
     const generatedId = useId();
     const sliderId = id || generatedId;
 
-    const ballDiameters = {
-      sm: 14,
-      md: 18,
-      lg: 22,
-    };
-
     // Validar showTicks
     const validShowTicks = showTicks && step !== undefined && step !== null;
-
-    if (showTicks && !validShowTicks) {
-      console.warn(
-        "RangeSlider: 'showTicks' was set to true, but 'step' is undefined or null. Ignoring 'showTicks'."
-      );
-    }
 
     // Generar las opciones para los ticks
     const datalistId = `${sliderId}-ticks`;

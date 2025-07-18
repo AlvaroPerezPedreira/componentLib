@@ -69,7 +69,6 @@
   letter-spacing: inherit;
 }
 
-/* Asegúrate de que este div actúe como una caja con separación */
 .otp-underline-box {
   display: flex;
   justify-content: center;

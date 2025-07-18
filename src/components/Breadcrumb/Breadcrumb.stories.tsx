@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react-webpack5";
 import { Breadcrumb, BreadcrumbItem } from "./Breadcrumb";
 import InfoIcon from "../../icons/InfoIcon";
-import { LeftArrowIcon, RightArrowIcon } from "../../icons";
 import CustomSeparator from "../../icons/CustomSeparator";
 
 const items: BreadcrumbItem[] = [
