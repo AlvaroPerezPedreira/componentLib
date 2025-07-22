@@ -15,6 +15,10 @@ const meta: Meta = {
       control: { type: "radio" },
       options: ["light", "dark"],
     },
+    orientation: {
+      control: { type: "radio" },
+      options: ["horizontal", "vertical"],
+    },
     name: {
       control: "text",
       defaultValue: "radio-group",
@@ -78,6 +82,31 @@ export const DarkTheme: Story = {
   },
 };
 
+export const Vertical: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    orientation: "vertical",
+  },
+  render: (args) => {
+    const [value, setValue] = useState("option1");
+
+    return (
+      <RadioGroup.Root
+        {...args}
+        value={value}
+        onValueChange={setValue}
+        name="example"
+      >
+        <RadioGroup.Item value="option1">First Option</RadioGroup.Item>
+        <RadioGroup.Item value="option2">Second Option</RadioGroup.Item>
+        <RadioGroup.Item value="option3">Third Option</RadioGroup.Item>
+      </RadioGroup.Root>
+    );
+  },
+};
+
 export const DefaultValue: Story = {
   args: {
     variant: "default",
@@ -95,6 +124,53 @@ export const DefaultValue: Story = {
         <RadioGroup.Item value="option1">First Option</RadioGroup.Item>
         <RadioGroup.Item value="option2">Second Option</RadioGroup.Item>
         <RadioGroup.Item value="option3">Third Option</RadioGroup.Item>
+      </RadioGroup.Root>
+    );
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+  },
+  render: (args) => {
+    return (
+      <RadioGroup.Root
+        {...args}
+        onValueChange={(v) => console.log("Value changed:", v)}
+        name="example"
+        defaultValue="option2"
+        disabled
+      >
+        <RadioGroup.Item value="option1">First Option</RadioGroup.Item>
+        <RadioGroup.Item value="option2">Second Option</RadioGroup.Item>
+        <RadioGroup.Item value="option3">Third Option</RadioGroup.Item>
+      </RadioGroup.Root>
+    );
+  },
+};
+
+export const DisabledItem: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+  },
+  render: (args) => {
+    return (
+      <RadioGroup.Root
+        {...args}
+        onValueChange={(v) => console.log("Value changed:", v)}
+        name="example"
+        defaultValue="option2"
+      >
+        <RadioGroup.Item value="option1">First Option</RadioGroup.Item>
+        <RadioGroup.Item value="option2">Second Option</RadioGroup.Item>
+        <RadioGroup.Item value="option3" disabled>
+          Third Option
+        </RadioGroup.Item>
       </RadioGroup.Root>
     );
   },

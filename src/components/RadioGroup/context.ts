@@ -8,6 +8,8 @@ interface RadioGroupContextType {
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
+  disabled?: boolean;
+  orientation?: "horizontal" | "vertical";
 }
 
 export const RadioGroupContext = createContext<

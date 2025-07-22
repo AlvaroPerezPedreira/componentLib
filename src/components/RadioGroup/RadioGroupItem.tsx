@@ -10,6 +10,7 @@ export interface RadioGroupItemProps
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
+  disabled?: boolean;
 }
 
 export function RadioGroupItem({
@@ -18,6 +19,7 @@ export function RadioGroupItem({
   variant,
   theme,
   sizeStyle,
+  disabled: localDisabled,
   ...rest
 }: RadioGroupItemProps) {
   const {
@@ -27,12 +29,14 @@ export function RadioGroupItem({
     variant: contextVariant,
     theme: contextTheme,
     sizeStyle: contextSizeStyle,
+    disabled: contextDisabled,
   } = useRadioGroupContext();
   const id = `radio-${name}-${itemValue}`;
 
   const appliedVariant = variant ?? contextVariant ?? "default";
   const appliedTheme = theme ?? contextTheme ?? "light";
   const appliedSizeStyle = sizeStyle ?? contextSizeStyle ?? "md";
+  const disabled = localDisabled ?? contextDisabled;
 
   const variantColors = variants[appliedVariant] || variants.default;
   const themeColors = themes[appliedTheme] || themes.light;
@@ -40,7 +44,9 @@ export function RadioGroupItem({
   return (
     <label
       htmlFor={id}
-      className={`radio-wrapper radio-wrapper--${appliedSizeStyle}`}
+      className={`radio-wrapper radio-wrapper--${appliedSizeStyle} ${
+        disabled ? "radio-wrapper--disabled" : ""
+      }`}
       style={
         {
           "--theme-text-color": themeColors.color,
@@ -57,6 +63,7 @@ export function RadioGroupItem({
         value={itemValue}
         checked={value === itemValue}
         onChange={() => setValue(itemValue)}
+        disabled={disabled}
         {...rest}
       />
       <span>{children}</span>

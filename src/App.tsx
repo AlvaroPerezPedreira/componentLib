@@ -1,34 +1,41 @@
 import React, { useState } from "react";
 import "./App.css";
-import { OTPInput } from "./components/OTPInput";
+import { RadioGroupRoot } from "./components/RadioGroup/RadioGroupRoot";
+import { RadioGroupItem } from "./components/RadioGroup/RadioGroupItem";
 
 function App() {
-  const [otpValue, setOtpValue] = useState("");
-  const [submittedOtp, setSubmittedOtp] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [submittedColor, setSubmittedColor] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmittedOtp(otpValue);
+    setSubmittedColor(selectedColor);
   };
 
   return (
     <div className="app-container">
       <form onSubmit={handleSubmit}>
-        <OTPInput
-          length={4}
-          value={otpValue}
-          onChange={setOtpValue}
+        <RadioGroupRoot
+          value={selectedColor}
+          onValueChange={setSelectedColor}
           theme="light"
           variant="warning"
           sizeStyle="md"
-          placeholder=""
-          variantTextColor={true}
-        />
+          name="colors"
+        >
+          <RadioGroupItem value="red" disabled variant="danger">
+            Red
+          </RadioGroupItem>
+          <RadioGroupItem value="green">Green</RadioGroupItem>
+          <RadioGroupItem value="blue">Blue</RadioGroupItem>
+        </RadioGroupRoot>
+
         <button type="submit" style={{ marginTop: "1rem" }}>
-          Submit OTP
+          Submit Color
         </button>
       </form>
-      <p>Submitted OTP: {submittedOtp}</p>
+
+      <p>Submitted Color: {submittedColor}</p>
     </div>
   );
 }

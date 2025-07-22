@@ -12,6 +12,8 @@ export interface RadioGroupRootProps {
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
+  disabled?: boolean;
+  orientation?: "horizontal" | "vertical";
 }
 
 export function RadioGroupRoot({
@@ -23,6 +25,8 @@ export function RadioGroupRoot({
   variant = "default",
   theme = "light",
   sizeStyle = "md",
+  disabled = false,
+  orientation = "horizontal",
 }: RadioGroupRootProps) {
   const isControlled = controlledValue !== undefined;
   const [uncontrolledValue, setUncontrolledValue] = useState(
@@ -39,9 +43,22 @@ export function RadioGroupRoot({
 
   return (
     <RadioGroupContext.Provider
-      value={{ value, setValue, name, variant, theme, sizeStyle }}
+      value={{
+        value,
+        setValue,
+        name,
+        variant,
+        theme,
+        sizeStyle,
+        disabled,
+        orientation,
+      }}
     >
-      <div role="radiogroup" aria-label={name}>
+      <div
+        role="radiogroup"
+        aria-label={name}
+        className={`radio-group radio-group--${orientation} radio-group--${sizeStyle}`}
+      >
         {children}
       </div>
     </RadioGroupContext.Provider>
