@@ -1,0 +1,17 @@
+import React, { createContext, useContext } from "react";
+
+export interface DropdownContextValue {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+export const DropdownContext = createContext<DropdownContextValue | undefined>(
+  undefined
+);
+
+export const useDropdownContext = () => {
+  const context = useContext(DropdownContext);
+  if (!context)
+    throw new Error("Dropdown components must be used within a Root");
+  return context;
+};

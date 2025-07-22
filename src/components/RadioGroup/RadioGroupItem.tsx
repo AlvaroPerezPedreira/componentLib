@@ -55,6 +55,7 @@ export function RadioGroupItem({
           "--variant-color": variantColors.color,
         } as React.CSSProperties
       }
+      aria-disabled={disabled}
     >
       <input
         id={id}
