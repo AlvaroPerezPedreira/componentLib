@@ -22,7 +22,11 @@ export function DropdownRoot({
     <DropdownContext.Provider
       value={{ open, setOpen, variant, theme, sizeStyle }}
     >
-      <div className={`dropdown-root dropdown-root--${sizeStyle}`}>
+      <div
+        className={`dropdown-root dropdown-root--${sizeStyle}`}
+        data-testid="dropdown-root"
+        role="combobox"
+      >
         {children}
       </div>
     </DropdownContext.Provider>

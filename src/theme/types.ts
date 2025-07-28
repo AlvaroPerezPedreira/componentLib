@@ -2,6 +2,7 @@ export type VariantColors = {
   color: string;
   contrast: string;
   highlight: string;
+  textColor: string;
 };
 
 export type ThemeColors = {

@@ -17,6 +17,7 @@ export function DropdownMenu({ children }: DropdownMenuProps) {
   return (
     <ul
       className={`dropdown-menu dropdown-menu--${sizeStyle} ${open ? "visible" : ""}`}
+      data-testid="dropdown-menu"
       style={
         {
           "--theme-background": themeColors.background,

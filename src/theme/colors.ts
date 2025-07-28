@@ -12,7 +12,7 @@ export const themes: ThemeTypes = {
   },
   dark: {
     color: "#ffffff",
-    contrast: "#6c757d",
+    contrast: "#7b7d6cff",
     background: "#000000",
     boxShadow: `
       0 2px 5px 0 rgba(255, 255, 255, 0.2), 
@@ -26,25 +26,30 @@ export const variants: ColorVariants = {
     color: "#006FEE",
     contrast: "#004BB5",
     highlight: "#bfdbfe",
+    textColor: "#000000",
   },
   success: {
     color: "#17c964",
     contrast: "#129c4b",
     highlight: "#bbf7d0",
+    textColor: "#000000",
   },
   warning: {
     color: "#f5a524",
     contrast: "#d18f00",
     highlight: "#fde68a",
+    textColor: "#000000",
   },
   danger: {
     color: "#f31260",
     contrast: "#b20a4a",
     highlight: "#fbcfe8",
+    textColor: "#000000",
   },
   info: {
     color: "#0dcaf0",
     contrast: "#0a8db8",
     highlight: "#bae6fd",
+    textColor: "#ffffff",
   },
 };
