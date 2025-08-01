@@ -5,6 +5,7 @@ export const themes: ThemeTypes = {
     color: "#000000",
     contrast: "#a0a0a0",
     background: "#ffffff",
+    highlight: "#71717a",
     boxShadow: `
       0 2px 5px 0 rgba(0, 0, 0, 0.2),       
       0 2px 2px 0 rgba(160, 160, 160, 0.19) 
@@ -14,6 +15,7 @@ export const themes: ThemeTypes = {
     color: "#ffffff",
     contrast: "#7b7d6cff",
     background: "#000000",
+    highlight: "#a1a1aa",
     boxShadow: `
       0 2px 5px 0 rgba(255, 255, 255, 0.2), 
       0 2px 2px 0 rgba(108, 117, 125, 0.19)

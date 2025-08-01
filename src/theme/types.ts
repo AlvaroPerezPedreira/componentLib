@@ -9,6 +9,7 @@ export type ThemeColors = {
   color: string;
   contrast: string;
   background: string;
+  highlight: string;
   boxShadow: string;
 };
 
