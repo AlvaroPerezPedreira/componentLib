@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import { CardContext } from "./context";
 import "./Card.css";
 import { sizes, themes, variants } from "../../theme";

@@ -1,17 +1,14 @@
-import { themes, variants } from "../../theme";
+import { themes } from "../../theme";
 import "./Card.css";
 import { useCardContext } from "./context";
 
 interface CardButtonProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
-  variant?: keyof typeof variants;
 }
 
-export function CardButton({ children, icon, variant }: CardButtonProps) {
-  const { variant: contextVariant, sizeStyle, theme } = useCardContext();
-  const appliedVariant = variant ?? contextVariant ?? "default";
-  const variantColors = variants[appliedVariant] || variants.default;
+export function CardButton({ children, icon }: CardButtonProps) {
+  const { sizeStyle, theme } = useCardContext();
 
   const gradients = {
     light: "linear-gradient(45deg, #18181b, #27272a)",
