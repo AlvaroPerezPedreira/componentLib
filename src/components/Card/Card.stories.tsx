@@ -35,7 +35,7 @@ export const BasicCard: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -57,14 +57,14 @@ export const BasicCard: Story = {
 export const FullCard: Story = {
   args: {
     theme: "light",
-    variant: "danger",
+    variant: "default",
     sizeStyle: "md",
   },
   render: (args) => {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -75,8 +75,8 @@ export const FullCard: Story = {
             Experience high-quality sound without the wires. Perfect for travel,
             workouts, and everyday use.
           </Card.Description>
-          <Card.Features variant="success">
-            <Card.Feature variant="info">Bluetooth 5.0</Card.Feature>
+          <Card.Features>
+            <Card.Feature>Bluetooth 5.0</Card.Feature>
             <Card.Feature>Noise Cancelling</Card.Feature>
             <Card.Feature>20h Battery</Card.Feature>
           </Card.Features>
@@ -93,14 +93,14 @@ export const FullCard: Story = {
 export const DarkTheme: Story = {
   args: {
     theme: "dark",
-    variant: "danger",
+    variant: "default",
     sizeStyle: "md",
   },
   render: (args) => {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -111,8 +111,8 @@ export const DarkTheme: Story = {
             Experience high-quality sound without the wires. Perfect for travel,
             workouts, and everyday use.
           </Card.Description>
-          <Card.Features variant="success">
-            <Card.Feature variant="info">Bluetooth 5.0</Card.Feature>
+          <Card.Features>
+            <Card.Feature>Bluetooth 5.0</Card.Feature>
             <Card.Feature>Noise Cancelling</Card.Feature>
             <Card.Feature>20h Battery</Card.Feature>
           </Card.Features>
@@ -136,7 +136,7 @@ export const CustomVariantTag: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -172,7 +172,7 @@ export const CustomVariantFeatures: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -208,7 +208,7 @@ export const CustomVariantPerFeature: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -245,7 +245,7 @@ export const WithOldPrice: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -281,7 +281,7 @@ export const ButtonWithIcon: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -317,7 +317,7 @@ export const SmallSize: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -353,7 +353,7 @@ export const MediumSize: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -389,7 +389,43 @@ export const LargeSize: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
+          alt="Sample Product"
+        />
+        <Card.Content>
+          <Card.Tag>New</Card.Tag>
+          <Card.Category>Electronics</Card.Category>
+          <Card.Title>Wireless Headphones</Card.Title>
+          <Card.Description>
+            Experience high-quality sound without the wires. Perfect for travel,
+            workouts, and everyday use.
+          </Card.Description>
+          <Card.Features>
+            <Card.Feature>Bluetooth 5.0</Card.Feature>
+            <Card.Feature>Noise Cancelling</Card.Feature>
+            <Card.Feature>20h Battery</Card.Feature>
+          </Card.Features>
+          <Card.Bottom>
+            <Card.Price newPrice="$129.99" />
+            <Card.Button>Add to Cart</Card.Button>
+          </Card.Bottom>
+        </Card.Content>
+      </Card.Root>
+    );
+  },
+};
+
+export const DefaultVariant: Story = {
+  args: {
+    theme: "light",
+    variant: "default",
+    sizeStyle: "md",
+  },
+  render: (args) => {
+    return (
+      <Card.Root {...args}>
+        <Card.Image
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -425,7 +461,7 @@ export const SuccessVariant: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -461,7 +497,7 @@ export const WarningVariant: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -497,7 +533,7 @@ export const DangerVariant: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>
@@ -533,7 +569,7 @@ export const InfoVariant: Story = {
     return (
       <Card.Root {...args}>
         <Card.Image
-          src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
           alt="Sample Product"
         />
         <Card.Content>

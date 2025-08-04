@@ -42,7 +42,8 @@
 
 .dropdown-menu {
   min-width: 100%;
-  width: fit-content;
+  box-sizing: border-box;
+  max-height: 1000px;
   margin-top: 8px;
   visibility: hidden;
   opacity: 0;
@@ -60,15 +61,15 @@
 }
 
 .dropdown-menu--sm {
-  padding: 2px 0;
+  padding: 2px 0px;
 }
 
 .dropdown-menu--md {
-  padding: 4px 0;
+  padding: 4px 0px;
 }
 
 .dropdown-menu--lg {
-  padding: 6px 0;
+  padding: 6px 0px;
 }
 
 .dropdown-menu.visible {

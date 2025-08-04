@@ -180,6 +180,17 @@ export const LargeSize: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  args: {
+    items: itemsSet1,
+    defaultOpenItems: ["1"],
+    multiple: true,
+    variant: "default",
+    sizeStyle: "md",
+    theme: "light",
+  },
+};
+
 export const SuccessVariant: Story = {
   args: {
     items: itemsSet1,

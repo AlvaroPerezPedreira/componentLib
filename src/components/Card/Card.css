@@ -56,8 +56,19 @@
 }
 
 .card-img {
-  height: 200px;
   overflow: hidden;
+}
+
+.card-img--sm {
+  height: 200px;
+}
+
+.card-img--md {
+  height: 240px;
+}
+
+.card-img--lg {
+  height: 280px;
 }
 
 .card-img img {

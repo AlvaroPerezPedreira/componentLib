@@ -102,6 +102,14 @@ export const LargeSize: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+  },
+};
+
 export const SuccessVariant: Story = {
   args: {
     variant: "success",

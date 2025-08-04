@@ -168,6 +168,23 @@ export const LargeSize: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  render: (args) => {
+    const [value, setValue] = useState("");
+    return (
+      <OTPInput {...args} value={value} onChange={(val) => setValue(val)} />
+    );
+  },
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    length: 6,
+    placeholder: "",
+    variantTextColor: false,
+  },
+};
+
 export const SuccessVariant: Story = {
   render: (args) => {
     const [value, setValue] = useState("");

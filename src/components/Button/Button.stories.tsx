@@ -137,6 +137,18 @@ export const LargeThickness: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  args: {
+    label: "Button",
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    thickness: "md",
+    disabled: false,
+    onClick: () => alert("Clicked!"),
+  },
+};
+
 export const SuccessVariant: Story = {
   args: {
     label: "Button",

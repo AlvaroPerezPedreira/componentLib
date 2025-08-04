@@ -187,6 +187,26 @@ export const LargeSize: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+  },
+  render: (args) => {
+    return (
+      <Dropdown.Root {...args}>
+        <Dropdown.Trigger>Open Dropdown</Dropdown.Trigger>
+        <Dropdown.Menu>
+          <Dropdown.Item>First Option</Dropdown.Item>
+          <Dropdown.Item>Second Option</Dropdown.Item>
+          <Dropdown.Item>Third Option</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown.Root>
+    );
+  },
+};
+
 export const SuccessVariant: Story = {
   args: {
     variant: "success",

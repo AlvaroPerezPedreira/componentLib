@@ -186,6 +186,18 @@ export const LargeThickness: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    thickness: "md",
+    disabled: false,
+    readOnly: false,
+    placeholder: "Write something...",
+  },
+};
+
 export const SuccessVariant: Story = {
   args: {
     variant: "success",

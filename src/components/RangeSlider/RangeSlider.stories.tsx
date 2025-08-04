@@ -281,6 +281,41 @@ export const LargeSize: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  render: (args) => {
+    const [value, setValue] = useState(args.defaultValue || 50);
+
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+          maxWidth: 400,
+        }}
+      >
+        <RangeSlider
+          {...args}
+          value={value}
+          onChange={(e) => setValue(Number(e.target.value))}
+        />
+        <div style={{ marginTop: 30 }}>Value: {value}</div>
+      </div>
+    );
+  },
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    min: 0,
+    max: 100,
+    step: 1,
+    defaultValue: 50,
+    disabled: false,
+  },
+};
+
 export const SuccessVariant: Story = {
   render: (args) => {
     const [value, setValue] = useState(args.defaultValue || 50);

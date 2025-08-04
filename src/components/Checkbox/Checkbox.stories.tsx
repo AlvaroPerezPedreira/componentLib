@@ -109,6 +109,18 @@ export const LargeSize: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  args: {
+    label: "I agree to the terms",
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    disabled: false,
+    defaultChecked: false,
+    readOnly: false,
+  },
+};
+
 export const SuccessVariant: Story = {
   args: {
     label: "I agree to the terms",

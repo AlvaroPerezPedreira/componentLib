@@ -314,6 +314,30 @@ export const LargeSize: Story = {
   },
 };
 
+export const DefaultVariant: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+  },
+  render: (args) => {
+    const [value, setValue] = useState("option1");
+
+    return (
+      <RadioGroup.Root
+        {...args}
+        value={value}
+        onValueChange={setValue}
+        name="example"
+      >
+        <RadioGroup.Item value="option1">First Option</RadioGroup.Item>
+        <RadioGroup.Item value="option2">Second Option</RadioGroup.Item>
+        <RadioGroup.Item value="option3">Third Option</RadioGroup.Item>
+      </RadioGroup.Root>
+    );
+  },
+};
+
 export const SuccessVariant: Story = {
   args: {
     variant: "success",
