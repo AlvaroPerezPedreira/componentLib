@@ -1,41 +1,43 @@
 import React, { useState } from "react";
 import "./App.css";
-import { RadioGroupRoot } from "./components/RadioGroup/RadioGroupRoot";
-import { RadioGroupItem } from "./components/RadioGroup/RadioGroupItem";
+import { Card } from "./components/Card";
 
 function App() {
-  const [selectedColor, setSelectedColor] = useState("");
-  const [submittedColor, setSubmittedColor] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmittedColor(selectedColor);
-  };
-
   return (
     <div className="app-container">
-      <form onSubmit={handleSubmit}>
-        <RadioGroupRoot
-          value={selectedColor}
-          onValueChange={setSelectedColor}
-          theme="light"
-          variant="warning"
-          sizeStyle="md"
-          name="colors"
-        >
-          <RadioGroupItem value="red" disabled variant="danger">
-            Red
-          </RadioGroupItem>
-          <RadioGroupItem value="green">Green</RadioGroupItem>
-          <RadioGroupItem value="blue">Blue</RadioGroupItem>
-        </RadioGroupRoot>
-
-        <button type="submit" style={{ marginTop: "1rem" }}>
-          Submit Color
-        </button>
-      </form>
-
-      <p>Submitted Color: {submittedColor}</p>
+      <Card.Root variant="danger">
+        <Card.Image
+          src="https://rvb-img.reverb.com/image/upload/s--s0lmRIU3--/f_auto,t_large/v1707330068/xy6mjqgi3ikpkfhxcvib.jpg"
+          alt="Sample Product"
+          onClick={() => {
+            console.log("Image clicked");
+          }}
+        />
+        <Card.Content>
+          <Card.Tag>New</Card.Tag>
+          <Card.Category>Electronics</Card.Category>
+          <Card.Title>Wireless Headphones</Card.Title>
+          <Card.Description>
+            Experience high-quality sound without the wires. Perfect for travel,
+            workouts, and everyday use.
+          </Card.Description>
+          <Card.Features>
+            <Card.Feature variant="default">Bluetooth 5.0</Card.Feature>
+            <Card.Feature>Noise Cancelling</Card.Feature>
+            <Card.Feature>20h Battery</Card.Feature>
+          </Card.Features>
+          <Card.Bottom>
+            <Card.Price oldPrice="$199.99" newPrice="$129.99" />
+            <Card.Button
+              onClick={() => {
+                console.log("HHola");
+              }}
+            >
+              Add to Cart
+            </Card.Button>
+          </Card.Bottom>
+        </Card.Content>
+      </Card.Root>
     </div>
   );
 }

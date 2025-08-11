@@ -2,17 +2,17 @@ import { themes } from "../../theme";
 import "./Card.css";
 import { useCardContext } from "./context";
 
-export function CardPrice({
-  oldPrice,
-  newPrice,
-}: {
+interface CardPriceProps extends React.HTMLAttributes<HTMLDivElement> {
   oldPrice?: string;
   newPrice: string;
-}) {
+}
+
+export function CardPrice({ oldPrice, newPrice, ...props }: CardPriceProps) {
   const { sizeStyle, theme } = useCardContext();
 
   return (
     <div
+      {...props}
       className={`card-price card-price--${sizeStyle}`}
       style={
         {

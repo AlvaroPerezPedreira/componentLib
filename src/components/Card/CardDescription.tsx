@@ -2,11 +2,17 @@ import { themes } from "../../theme";
 import "./Card.css";
 import { useCardContext } from "./context";
 
-export function CardDescription({ children }: { children: React.ReactNode }) {
+interface CardDescriptionProps
+  extends React.HTMLAttributes<HTMLParagraphElement> {
+  children: React.ReactNode;
+}
+
+export function CardDescription({ children, ...props }: CardDescriptionProps) {
   const { sizeStyle, theme } = useCardContext();
 
   return (
     <p
+      {...props}
       className={`card-desc card-desc--${sizeStyle}`}
       style={
         {

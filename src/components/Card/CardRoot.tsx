@@ -3,7 +3,7 @@ import { CardContext } from "./context";
 import "./Card.css";
 import { sizes, themes, variants } from "../../theme";
 
-export interface CardRootProps {
+export interface CardRootProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
@@ -15,10 +15,12 @@ export function CardRoot({
   variant = "default",
   theme = "light",
   sizeStyle = "md",
+  ...props
 }: CardRootProps) {
   return (
     <CardContext.Provider value={{ variant, theme, sizeStyle }}>
       <div
+        {...props}
         className={`card-root card-root--${sizeStyle}`}
         style={
           {

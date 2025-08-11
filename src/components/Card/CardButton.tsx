@@ -2,12 +2,13 @@ import { themes } from "../../theme";
 import "./Card.css";
 import { useCardContext } from "./context";
 
-interface CardButtonProps {
+interface CardButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   icon?: React.ReactNode;
 }
 
-export function CardButton({ children, icon }: CardButtonProps) {
+export function CardButton({ children, icon, ...props }: CardButtonProps) {
   const { sizeStyle, theme } = useCardContext();
 
   const gradients = {
@@ -22,6 +23,7 @@ export function CardButton({ children, icon }: CardButtonProps) {
 
   return (
     <button
+      {...props}
       className={`card-btn card-btn--${sizeStyle}`}
       style={
         {

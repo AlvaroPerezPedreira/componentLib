@@ -3,18 +3,19 @@ import { useCardContext } from "./context";
 import "./Card.css";
 import { themes, variants } from "../../theme";
 
-interface CardTagProps {
+interface CardTagProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   variant?: keyof typeof variants;
 }
 
-export function CardTag({ children, variant }: CardTagProps) {
+export function CardTag({ children, variant, ...props }: CardTagProps) {
   const { variant: contextVariant, sizeStyle, theme } = useCardContext();
   const appliedVariant = variant ?? contextVariant ?? "default";
   const variantColors = variants[appliedVariant] || variants.default;
 
   return (
     <div
+      {...props}
       className={`card-badge card-badge--${sizeStyle}`}
       data-testid="card-tag"
       style={
