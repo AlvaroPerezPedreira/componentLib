@@ -3,7 +3,8 @@ import { DropdownContext } from "./context";
 import "./Dropdown.css";
 import { sizes, themes, variants } from "../../theme";
 
-export interface DropdownRootProps {
+export interface DropdownRootProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
@@ -15,6 +16,7 @@ export function DropdownRoot({
   variant = "default",
   theme = "light",
   sizeStyle = "md",
+  ...props
 }: DropdownRootProps) {
   const [open, setOpen] = useState(false);
 
@@ -23,6 +25,7 @@ export function DropdownRoot({
       value={{ open, setOpen, variant, theme, sizeStyle }}
     >
       <div
+        {...props}
         className={`dropdown-root dropdown-root--${sizeStyle}`}
         data-testid="dropdown-root"
         role="combobox"

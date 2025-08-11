@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import { themes, variants } from "../../theme";
 import { useDropdownContext } from "./context";
 

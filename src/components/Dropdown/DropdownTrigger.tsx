@@ -2,12 +2,17 @@ import React from "react";
 import { useDropdownContext } from "./context";
 import { themes, variants } from "../../theme";
 
-export interface DropdownTriggerProps {
+export interface DropdownTriggerProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant?: keyof typeof variants;
 }
 
-export function DropdownTrigger({ children, variant }: DropdownTriggerProps) {
+export function DropdownTrigger({
+  children,
+  variant,
+  ...props
+}: DropdownTriggerProps) {
   const { open, setOpen } = useDropdownContext();
   const { variant: contextVariant, sizeStyle, theme } = useDropdownContext();
 
@@ -18,6 +23,7 @@ export function DropdownTrigger({ children, variant }: DropdownTriggerProps) {
 
   return (
     <button
+      {...props}
       className={`dropdown-trigger dropdown-trigger--${sizeStyle} ${open ? "open" : ""}`}
       onClick={() => setOpen(!open)}
       aria-haspopup="true"
