@@ -8,6 +8,7 @@ export function CardTitle({ children }: { children: React.ReactNode }) {
   return (
     <h2
       className={`card-title card-title--${sizeStyle}`}
+      data-testid="card-title"
       style={
         {
           "--text-color": themes[theme ?? "light"].color,

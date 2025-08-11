@@ -10,7 +10,7 @@ export function CardDescription({ children }: { children: React.ReactNode }) {
       className={`card-desc card-desc--${sizeStyle}`}
       style={
         {
-          "--text-color2": themes[theme ?? "light"].color2,
+          "--text-color2": themes[theme ?? "light"].highlight,
         } as React.CSSProperties
       }
     >

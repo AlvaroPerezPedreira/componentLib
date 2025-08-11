@@ -16,6 +16,7 @@ export function CardTag({ children, variant }: CardTagProps) {
   return (
     <div
       className={`card-badge card-badge--${sizeStyle}`}
+      data-testid="card-tag"
       style={
         {
           "--theme-text-color": themes[theme ?? "light"].color,
