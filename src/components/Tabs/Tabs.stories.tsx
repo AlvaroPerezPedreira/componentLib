@@ -18,6 +18,10 @@ const meta: Meta<typeof Tabs.Root> = {
       control: { type: "radio" },
       options: ["sm", "md", "lg"],
     },
+    textAlign: {
+      control: { type: "radio" },
+      options: ["left", "center", "right", "justify"],
+    },
   },
 };
 
@@ -30,10 +34,846 @@ export const Default: Story = {
     variant: "default",
     theme: "light",
     sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
   },
   render: (args) => {
     return (
-      <Tabs.Root defaultValue="davinci" {...args}>
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const DarkTheme: Story = {
+  args: {
+    variant: "default",
+    theme: "dark",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const DefaultValue: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "newton",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const DisabledItem: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci" disabled>
+          da Vinci
+        </Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const AlignText: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "center",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const AlignTextPerItem: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla" textAlign="left">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci" textAlign="center">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton" textAlign="right">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const SmallSize: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "sm",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const MediumSize: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const LargeSize: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "lg",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const DefaultVariant: Story = {
+  args: {
+    variant: "default",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const SuccessVariant: Story = {
+  args: {
+    variant: "success",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const WarningVariant: Story = {
+  args: {
+    variant: "warning",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const DangerVariant: Story = {
+  args: {
+    variant: "danger",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
+        <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
+        <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
+        <Tabs.Trigger value="newton">Newton</Tabs.Trigger>
+
+        <Tabs.Content value="tesla">
+          <h1>Nikola Tesla</h1>
+          <p>
+            Serbian-American inventor and electrical engineer known for his
+            contributions to the development of alternating current (AC)
+            electrical systems. Tesla held over 300 patents and was considered
+            one of the most innovative minds of his time.
+          </p>
+          <p>
+            His groundbreaking work with wireless technology and electromagnetic
+            fields laid the foundation for many modern electrical devices we use
+            today.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="davinci">
+          <h1>Leonardo da Vinci</h1>
+          <p>
+            Italian Renaissance polymath who excelled as an artist, inventor,
+            engineer, scientist, and mathematician. Best known for masterpieces
+            like the Mona Lisa and The Last Supper, da Vinci was truly ahead of
+            his time.
+          </p>
+          <p>
+            His notebooks contain designs for helicopters, tanks, submarines,
+            and countless other inventions that wouldn't be built for centuries
+            after his death.
+          </p>
+        </Tabs.Content>
+
+        <Tabs.Content value="newton">
+          <h1>Isaac Newton</h1>
+          <p>
+            English physicist, mathematician, and astronomer who formulated the
+            laws of motion and universal gravitation. His work "Principia
+            Mathematica" is considered one of the most important scientific
+            works ever written.
+          </p>
+          <p>
+            Newton also made significant contributions to optics and
+            mathematics, including the development of calculus, fundamentally
+            changing our understanding of the natural world.
+          </p>
+        </Tabs.Content>
+      </Tabs.Root>
+    );
+  },
+};
+
+export const InfoVariant: Story = {
+  args: {
+    variant: "info",
+    theme: "light",
+    sizeStyle: "md",
+    textAlign: "justify",
+    defaultValue: "tesla",
+  },
+  render: (args) => {
+    return (
+      <Tabs.Root {...args}>
         <Tabs.Trigger value="tesla">Tesla</Tabs.Trigger>
         <Tabs.Trigger value="davinci">da Vinci</Tabs.Trigger>
         <Tabs.Trigger value="newton">Newton</Tabs.Trigger>

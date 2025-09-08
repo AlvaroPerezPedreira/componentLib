@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { sizes, themes, variants } from "../../theme";
+import { sizes, textAlignments, themes, variants } from "../../theme";
 
 export interface TabsContextValue {
   activeTab: string;
@@ -7,6 +7,7 @@ export interface TabsContextValue {
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
+  textAlign?: keyof typeof textAlignments;
 }
 
 export const TabsContext = createContext<TabsContextValue | undefined>(

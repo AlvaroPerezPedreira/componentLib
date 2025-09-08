@@ -7,9 +7,15 @@ export interface TabsTriggerProps {
   value: string;
   children: ReactNode;
   variant?: keyof typeof variants;
+  disabled?: boolean;
 }
 
-export function TabsTrigger({ value, children, variant }: TabsTriggerProps) {
+export function TabsTrigger({
+  value,
+  children,
+  variant,
+  disabled,
+}: TabsTriggerProps) {
   const {
     activeTab,
     setActiveTab,
@@ -29,8 +35,9 @@ export function TabsTrigger({ value, children, variant }: TabsTriggerProps) {
     <button
       role="tab"
       aria-selected={isActive}
+      aria-disabled={disabled}
       onClick={() => setActiveTab(value)}
-      className={`tabs-trigger tabs-trigger--${sizeStyle} ${isActive ? "tabs-trigger--active" : ""}`}
+      className={`tabs-trigger tabs-trigger--${sizeStyle} ${isActive ? "tabs-trigger--active" : ""} ${disabled ? "tabs-trigger--disabled" : ""}`}
       style={
         {
           "--theme-text-color": themeColors.color,

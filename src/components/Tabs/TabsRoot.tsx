@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { TabsContext } from "./context";
 import "./Tabs.css";
-import { sizes, themes, variants } from "../../theme";
+import { sizes, textAlignments, themes, variants } from "../../theme";
 
 import { TabsTrigger } from "./TabsTrigger";
 import { TabsContent } from "./TabsContent";
@@ -12,6 +12,7 @@ export interface TabsRootProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: keyof typeof variants;
   theme?: keyof typeof themes;
   sizeStyle?: keyof typeof sizes;
+  textAlign?: keyof typeof textAlignments;
 }
 
 export function TabsRoot({
@@ -20,6 +21,7 @@ export function TabsRoot({
   variant = "default",
   theme = "light",
   sizeStyle = "md",
+  textAlign = "justify",
   ...props
 }: TabsRootProps) {
   const [activeTab, setActiveTab] = useState(defaultValue || "");
@@ -79,6 +81,7 @@ export function TabsRoot({
         variant,
         theme,
         sizeStyle,
+        textAlign,
       }}
     >
       <div
