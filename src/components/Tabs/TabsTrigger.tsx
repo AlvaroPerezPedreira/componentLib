@@ -8,6 +8,7 @@ export interface TabsTriggerProps {
   children: ReactNode;
   variant?: keyof typeof variants;
   disabled?: boolean;
+  icon?: ReactNode;
 }
 
 export function TabsTrigger({
@@ -15,6 +16,7 @@ export function TabsTrigger({
   children,
   variant,
   disabled,
+  icon,
 }: TabsTriggerProps) {
   const {
     activeTab,
@@ -50,6 +52,11 @@ export function TabsTrigger({
         } as React.CSSProperties
       }
     >
+      {icon && (
+        <span className={`tabs-trigger-icon tabs-trigger-icon--${sizeStyle}`}>
+          {icon}
+        </span>
+      )}
       {children}
     </button>
   );

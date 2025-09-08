@@ -11,7 +11,7 @@
 /* Trigger */
 .tabs-trigger {
   width: auto;
-  display: inline-block;
+  display: inline-flex;
   cursor: pointer;
   transition:
     padding 0.2s ease,
@@ -58,6 +58,27 @@
   pointer-events: none;
   cursor: not-allowed;
   user-select: none;
+}
+
+.tabs-trigger-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+}
+
+.tabs-trigger-icon--sm svg {
+  width: 12px;
+  height: 12px;
+}
+
+.tabs-trigger-icon--md svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tabs-trigger-icon--lg svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Content */
