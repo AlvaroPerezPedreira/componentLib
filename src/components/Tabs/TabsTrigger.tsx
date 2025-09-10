@@ -39,6 +39,7 @@ export function TabsTrigger({
       aria-selected={isActive}
       aria-disabled={disabled}
       onClick={() => setActiveTab(value)}
+      data-testid="tabs-trigger"
       className={`tabs-trigger tabs-trigger--${sizeStyle} ${isActive ? "tabs-trigger--active" : ""} ${disabled ? "tabs-trigger--disabled" : ""}`}
       style={
         {
